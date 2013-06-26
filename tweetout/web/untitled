@@ -1,0 +1,26 @@
+try:
+			with tweetstream.TweetStream("heatonjb", "heatonjb") as stream
+				for tweet in stream:
+					print "Got tweet from %-16s\t( tweet %d, rate %.1f tweets/sec)" % (
+                    	tweet["user"]["screen_name"], stream.count, stream.rate )
+		except tweetstream.ConnectionError, e:
+			print "Disconnected from twitter. Reason:", e.reason
+
+
+
+
+
+				stream = tweetstream.SampleStream(
+    				"UXGPhu7Mxmb7UrGskHnofg", 
+    				"OFUKyMZXvOSwcFyyXKJYbwrLqdYICpflrOZAuaNVvs", 
+    				"66629521-mU8uNJS2SWjqZ7LZ6DVKhipqd6HtEMIszZD1P40Fn",
+                 	"3p2iurE9Xn4aaHz65AUYrFsrg2Rf5vA4rljCYRNYg",
+
+                 )
+    	for tweet in stream:
+    		print tweet
+
+    
+    	
+
+    	tweets = ['1111','22222','3333']

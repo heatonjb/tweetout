@@ -4,14 +4,24 @@ from django.conf.urls import patterns, include, url
 # from django.contrib import admin
 # admin.autodiscover()
 
+import web.views
+
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'tweetout.views.home', name='home'),
-    # url(r'^tweetout/', include('tweetout.foo.urls')),
+
+    #(r'^', include('web.urls')),
+    url(r"^", include("web.urls"))
+
+    #url(r'^$', include('web.urls')),
+    #url(r'auth/^$', 'web.views.auth'),
+	#url(r'^$', web.views.MainView.as_view(),name='main_view',),
+	#url(r'^$', web.views.Stream.as_view(),name='stream',),
+	
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+
 )

@@ -1,0 +1,9 @@
+<h1>Tweet Out - Auth</h1>
+
+<ul>
+  {% for alog in log %}
+	  <li class="{% cycle 'row1' 'row2' %}">
+	        {{ alog }}
+	   </li>
+  {% endfor %}
+</ul>

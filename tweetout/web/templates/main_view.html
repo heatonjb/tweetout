@@ -1,0 +1,9 @@
+<h1>Tweet Out</h1>
+
+<ul>
+  {% for tweet in tweets %}
+	  <li class="{% cycle 'row1' 'row2' %}">
+	        {{ tweet }}
+	   </li>
+  {% endfor %}
+</ul>

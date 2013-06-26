@@ -21,6 +21,8 @@ DATABASES = {
     }
 }
 
+INTERNAL_IPS = ('127.0.0.1', '192.168.0.1',)
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -72,6 +74,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    "/Users/jon/www/tweetout/tweetout/static",
 )
 
 # List of finder classes that know how to find static files in
@@ -85,6 +88,23 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '^0w211t7p+)yjgspi4r4m(@0hgrs+3_8^k!fqcpug@--8qzm$8'
 
+
+
+#Tweeter Keys
+
+TWITTER_CONSUMER_KEY = 'UXGPhu7Mxmb7UrGskHnofg'
+TWITTER_CONSUMER_SECRET = 'OFUKyMZXvOSwcFyyXKJYbwrLqdYICpflrOZAuaNVvs'
+
+
+def custom_show_toolbar(request):
+    return True  # Always show toolbar, for example purposes only.
+SHOW_TOOLBAR_CALLBACK = custom_show_toolbar
+
+DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}
+
+
+
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -93,11 +113,13 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -121,6 +143,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+    'web',
+    'debug_toolbar',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -155,3 +179,4 @@ LOGGING = {
         },
     }
 }
+

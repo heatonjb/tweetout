@@ -1,0 +1,859 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"for",
+				"for	for …"
+			],
+			[
+				"con",
+				"constant"
+			],
+			[
+				"fft",
+				"fft_addto"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"font",
+				"font"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"isa",
+				"is_array"
+			],
+			[
+				"jeans",
+				"jeans261112rest"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"quiz",
+				"quizResults"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"card",
+				"cardDetails"
+			],
+			[
+				"point",
+				"points_adjusted_array"
+			],
+			[
+				"rma",
+				"rmaProduct"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"background-cp",
+				"background-color:   (property)"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"new",
+				"newRes"
+			],
+			[
+				"ccsave",
+				"ccsaveIn"
+			],
+			[
+				"method",
+				"methodInstance"
+			],
+			[
+				"count",
+				"count"
+			],
+			[
+				"compare",
+				"compareItems"
+			],
+			[
+				"re",
+				"removeProduct  (function)"
+			],
+			[
+				"geti",
+				"getItemCollection"
+			],
+			[
+				"sav",
+				"save"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"rep",
+				"repeat-x"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"initSignup",
+				"initSignupShare"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"c",
+				"color"
+			],
+			[
+				"html",
+				"htmlspecialchars_decode"
+			],
+			[
+				"htm",
+				"htmlentities"
+			],
+			[
+				"fnt",
+				"font-size"
+			],
+			[
+				"f",
+				"font-family"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"getcl",
+				"get_class"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"lih",
+				"lightbox-share"
+			],
+			[
+				"title",
+				"titleText"
+			],
+			[
+				"fancy",
+				"fancybox"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"ht",
+				"htmlentities"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"col",
+				"color:   (property)"
+			],
+			[
+				"bacl",
+				"background-color"
+			],
+			[
+				"padding-",
+				"padding-top:   (property)"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"di",
+				"white-divide"
+			],
+			[
+				"inward-btn",
+				"inward-btn"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"pre",
+				"previous_mag"
+			],
+			[
+				"prev",
+				"previous_mag"
+			],
+			[
+				"pro",
+				"product_variation_count"
+			],
+			[
+				"img",
+				"img3"
+			],
+			[
+				"csv",
+				"csvToArray"
+			],
+			[
+				"get_ca",
+				"get_class"
+			],
+			[
+				"Pr",
+				"PromoAbstract"
+			],
+			[
+				"country",
+				"countryName"
+			],
+			[
+				"strp",
+				"strpos"
+			],
+			[
+				"backg",
+				"background	background-color: hex"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"dis",
+				"display	display: block"
+			],
+			[
+				"discover_",
+				"discover_title"
+			],
+			[
+				"tr",
+				"text-transform"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"iss",
+				"isset"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"Lo",
+				"log"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"n",
+				"null"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"strr",
+				"str_replace"
+			],
+			[
+				"product_c",
+				"product-col-description_gauche"
+			],
+			[
+				"head",
+				"heading-bar-lines-top"
+			],
+			[
+				"heading-ba",
+				"heading-bar-lines"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"",
+				"Snippet: <?php echo $this->… ?>"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 123.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/jon/www/jeans/app/code/local/Jeanography/Iq/Model/Mysql4/Sizerule.php",
+		"/Users/jon/www/jeans/var/scripts/brands.csv",
+		"/Users/jon/www/jeans/var/scripts/size.csv",
+		"/Users/jon/www/jeans/var/scripts/ml.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/catalog/product/list.phtml",
+		"/Users/jon/www/jeans/app/code/local/Jeanography/Iq/Helper/Data.php",
+		"/Users/jon/www/jeans/app/code/community/TBT/Rewards/Block/Widget/Grid.php",
+		"/Users/jon/www/jeans/app/code/local/AW/Advancedreports/Block/Advanced/Country/Grid.php",
+		"/Users/jon/www/jeans/app/code/community/Ess/M2ePro/Helper/Component/Amazon.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/custom/sizes.phtml",
+		"/Users/jon/www/jeans/app/code/local/Jeanography/Iq/Model",
+		"/Users/jon/www/jeans/app/locale/en_GB/template/email/sales/invoice_new.html",
+		"/Users/jon/www/jeans/app/locale/en_GB/template/email/sales/jeanography_invoice.html",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Pdf/Invoice.php",
+		"/Users/jon/www/jeans/geckoboard/core.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Core/Model/Email/Template.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/email/order/invoice/items.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/base/default/layout/sales.xml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/email/order/items/invoice/default.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/layout/sales.xml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/sales/order/totals.phtml",
+		"/Users/jon/www/jeans/var/scripts/fabfile.py",
+		"/Users/jon/www/jeans/app/code/community/TBT/RewardsReferral/Model/Referral/Firstorder.php",
+		"/Users/jon/www/jeans/app/code/community/TBT/RewardsReferral/Helper/Shortcode.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Newsletter/Model/Observer.php",
+		"/Users/jon/www/jeans/app/code/local/Idev/OneStepCheckout/Helper/Checkout.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order.php",
+		"/Users/jon/Downloads/index_includes.html",
+		"/Users/jon/www/jeans/var/scripts/creditdrop.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Item.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/fitfirsttime.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/custom/facebook_share.phtml",
+		"/Users/jon/www/jeans/app/code/community/ET/AdvancedCompare/etc/config.xml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/fitfirsttime-exp.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/catalog/product/view.phtml",
+		"/Users/jon/www/jeans/index.php",
+		"/Users/jon/www/jeans/app/code/local/MDN/ProductReturn/Helper/CreateOrder.php",
+		"/Applications/MAMP/bin/php/php5.3.6/conf/php.ini",
+		"/Users/jon/www/jeans/jeanography.sublime-project",
+		"/Users/jon/www/jeans/domain.php",
+		"/Users/jon/www/jeans/app/code/local/MDN/ProductReturn/Helper/Stock.php",
+		"/etc/hosts",
+		"/Users/jon/www/jeans/app/code/local/MDN/ProductReturn/Helper/CreateAbstract.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/custom/fft.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/fbregistration/register.phtml",
+		"/Users/jon/www/jeans/app/code/local/MDN/ProductReturn/Helper/PendingProducts.php",
+		"/Users/jon/www/jeans/app/code/local/MDN/ProductReturn/Model/RmaProducts.php",
+		"/Users/jon/www/jeans/.gitignore",
+		"/Applications/MAMP/bin/php/php5.3.6/lib/php/extensions/no-debug-non-zts-20090626/xdebug.so",
+		"/Users/jon/www/jeans/app/etc/config.xml",
+		"/Users/jon/www/jeans/skin/frontend/default/jeanography/css/slickquiz/master.css",
+		"/Users/jon/www/jeans/skin/frontend/default/jeanography/js/slickquiz/slickQuiz.js",
+		"/Users/jon/www/jeans/skin/frontend/default/jeanography/js/slickquiz/JGquizData.json",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/quiz.phtml",
+		"/Users/jon/www/jeans/app/code/core/Mage/Core/Helper/Url.php",
+		"/Users/jon/www/jeans/skin/frontend/default/jeanography/js/jquery.main.js",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/layout/page.xml",
+		"/Users/jon/www/jeans/app/code/community/TBT/RewardsReferral/Model/Observer/Createaccount.php",
+		"/Users/jon/www/jeans/skin/frontend/default/jeanography/css/styles.css",
+		"/Users/jon/www/jeans/app/code/community/Ess/M2ePro/Helper/Component/Ebay.php",
+		"/Users/jon/www/jeans/app/code/community/Ess/M2ePro/Model/Ebay/Account.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/html/header.phtml",
+		"/Users/jon/www/jeans/skin/frontend/default/jeanography/css/all.css",
+		"/Users/jon/www/jeans/app/code/community/Inchoo/Stripe/Model/Payment.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/custom/denim_desire_feed.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/layout/catalog.xml",
+		"/Users/jon/Downloads/customer_20130514_133128.csv",
+		"/Users/jon/www/jeans/app/code/core/Mage/Payment/Model/Source/Cctype.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Payment/Model/Method/Cc.php",
+		"/Users/jon/www/jeans/app/code/community/ET/AdvancedCompare/Helper/Data.php",
+		"/Users/jon/www/jeans/app/code/community/Inchoo/Stripe/Block/Form.php",
+		"/Users/jon/www/jeans/app/design/adminhtml/default/default/template/payment/form/cc.phtml",
+		"/Users/jon/www/jeans/lib/Stripe/Stripe/Customer.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/layout/stripe.xml",
+		"/Users/jon/www/jeans/app/code/local/Mage/Payment/Helper/Data.php",
+		"/Users/jon/Downloads/matrixrates(2).csv",
+		"/Users/jon/www/jeans/app/code/local/Mage/Payment/Block/Form/Container.php",
+		"/Users/jon/www/jeans/app/code/community/Ebizmarts/SweetMonkey/Model/Observer.php",
+		"/var/www/app/code/community/Ebizmarts/MageMonkey/Model/Observer.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Creditmemo/Total/Tax.php",
+		"/Users/jon/www/jeans/pexx",
+		"/Users/jon/www/jeans/app/code/community/Ebizmarts/MageMonkey/Model/Observer.php",
+		"/Users/jon/www/jeans/app/code/local/Mage/Payment/Model/Method/Free.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Payment/Model/Method/Free.php",
+		"/Users/jon/www/jeans/app/code/local/Mage/Payment/Model/Method/Cc.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Payment/Block/Form/Container.php",
+		"/Users/jon/Downloads/matrixrates (1).csv",
+		"/Users/jon/www/jeans/app/code/core/Mage/Payment/Block/Form/Cc.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/template-home.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/default/template/catalog/product/price.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/rewards/product/predictpoints.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/page/html/footer.phtml",
+		"/Users/jon/www/jeans/app/code/community/Inchoo/Stripe/Block/Info.php",
+		"/Users/jon/www/jeans/app/code/community/Inchoo/Stripe/Block/Creditcard/Management.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/default/template/payment/form/cc.phtml",
+		"/Users/jon/www/jeans/app/code/community/Inchoo/Stripe/Helper/Data.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Payment/Model/Method/Abstract.php",
+		"/Users/jon/www/jeans/app/code/community/Inchoo/Stripe/etc/config.xml",
+		"/Users/jon/www/jeans/app/code/local/Braintree/etc/config.xml",
+		"/Users/jon/www/jeans/app/code/core/Mage/Payment/Helper/Data.php",
+		"/Users/jon/www/jeans/pp/code/core/Mage/Payment/Block/Form/Cc.php",
+		"/Users/jon/www/jeans/app/design/frontend/base/default/template/braintree/form.phtml",
+		"/Users/jon/www/jeans/app/code/core/Mage/Adminhtml/controllers/Sales/Order/CreditmemoController.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Creditmemo/Total/Grand.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Creditmemo/Total/Discount.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Creditmemo/Total/Subtotal.php",
+		"/Users/jon/www/jeans/Users/jon/www/jeans/app/code/community/Ebizmarts/MageMonkey/Model",
+		"/Users/jon/www/jeans/lib/Stripe/Stripe/Charge.php",
+		"/Users/jon/www/jeans/app/etc/modules/MDN_ProductReturn.xml",
+		"/Users/jon/www/jeans/app/etc/modules/MageExt_FixRound.xml",
+		"/Users/jon/www/jeans/shell/customerUpdate.php",
+		"/Users/jon/www/jeans/shell/fitfirsttime7day.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/checkout/success.phtml",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Creditmemo/Total/Cost.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Creditmemo/Total/Abstract.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Model/Order/Creditmemo/Total/Shipping.php",
+		"/Users/jon/www/jeans/app/code/local/Mage/Sales/Model/Order/Creditmemo/Total/Shipping.php",
+		"/Users/jon/www/jeans/var/log/xero.log",
+		"/Users/jon/www/jeans/app/code/community/Fooman/Connect/controllers/Adminhtml/XeroController.php",
+		"/Users/jon/www/jeans/var/scripts/fitfirsttime7day.php",
+		"/Users/jon/www/jeans/in",
+		"/private/var/folders/mt/bgbg12js66d5f4cf6v4kcqt40000gn/T/3fc0cc77-aa0c-4ec6-81b8-54fc0804ac7e/var/www/app/code/local/MDN/ProductReturn/controllers/FrontController.php",
+		"/Users/jon/www/jeans/app/code/community/ET/AdvancedCompare/Test/Catalog.php",
+		"/Users/jon/www/jeans/app/code/core/Mage/Sales/Block/Order/Print/Shipment.php",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/ProductReturn/NewRequest.phtml",
+		"/Users/jon/www/jeans/app/design/frontend/default/jeanography/template/ProductReturn/View.phtml",
+		"/Users/jon/www/jeans/app/code/local/MDN/ProductReturn/Block/Admin/Sales/Order/View/Tab/ProductReturn.php",
+		"/Users/jon/www/jeans/app/code/local/MDN/ProductReturn/Model/Rma.php"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/jon/www/lot18/app/code/local/Lot/EHD",
+			"/Users/jon/www/lot18/app/code/local/Lot/EHB",
+			"/Users/jon/www/lot18/app/code/local/Lot",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"input",
+			"styles",
+			";\n",
+			"frontend",
+			"echo",
+			"system",
+			"green",
+			"NOMATCH",
+			"GOODMATCH",
+			"VARIANCE",
+			"int",
+			"OKMATCH",
+			"ALTMATCH",
+			"()),$",
+			"$colour",
+			"getSizeRecommendation",
+			"echo",
+			"API_VERSION",
+			"Hudson Jeans",
+			"MiH",
+			"Citizens of Humanity",
+			"James",
+			"getColl",
+			"_collection",
+			"brand",
+			"knee_options",
+			"bottom_options",
+			"hips_options",
+			"ype=\"select\" name=\"waist\"",
+			"waist",
+			"WAIST",
+			"gender",
+			"Generic High Street Brand",
+			"Top Shop",
+			"Levis",
+			"J Brand",
+			"Paige",
+			"True Religion",
+			"Citizens of Humanity",
+			"Hudson Jeans",
+			"Jeanography_Iq_Model_Mysql4_Sizerule",
+			"`",
+			"console",
+			"exists",
+			"basket",
+			"You must select a size before you can add Jean's to your FFT basket",
+			"HTML",
+			"html",
+			"best_match_size",
+			"You must select a size before",
+			" \"",
+			".product-shop .btns",
+			"diagra",
+			"iv.sizes",
+			"thesize",
+			".alt",
+			"your",
+			"selectedid",
+			"rel",
+			"size-clicks",
+			"alt_sizess",
+			"att_",
+			"brand_feed",
+			"child",
+			"foreac",
+			"size",
+			"'",
+			"\\",
+			"`",
+			"No",
+			"referal id",
+			"referalid",
+			"friend3",
+			"£25",
+			"fitfirsttimeexp",
+			">\n",
+			"fitfirsttimeexp",
+			"class=\"price",
+			"price",
+			"invoice_totals",
+			"tr",
+			"td",
+			"{{",
+			"brand",
+			"size",
+			"pdfinvoices",
+			"staging",
+			"websiteId",
+			"£15",
+			"$productId",
+			"Method require loaded instance first",
+			"light",
+			"£50",
+			"£20",
+			"refer",
+			"- REGISTER NOW & GET £50 CREDIT -",
+			"$object['products']",
+			"manager",
+			"var",
+			"stock",
+			"brand_feed",
+			"jeanography.co.uk",
+			"url",
+			"marketplaceId",
+			"ebay.com",
+			"complete",
+			"start",
+			"startover",
+			"backToQuestion",
+			"completeQuiz",
+			"complet",
+			"backto",
+			"Question",
+			"backTo",
+			"backto",
+			"back",
+			"share",
+			".copy",
+			"complete",
+			"fft",
+			"comple",
+			"complete",
+			"twitter",
+			"complete",
+			".data",
+			"completeQuiz",
+			"levelsImg",
+			"complete"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"7 For All Mankind",
+			"MiH Jeans",
+			"Citizens Of Humanity",
+			"James Jeans",
+			"MIH",
+			"Generic High Street Brand",
+			"Top Shop",
+			"Levis",
+			"J Brand",
+			"Paige",
+			"True Religion",
+			"Citizens of Humanity",
+			"'",
+			"",
+			"'",
+			"- REGISTER NOW & GET £20 CREDIT -",
+			"jeanography.com",
+			"£50",
+			"input-text",
+			"",
+			"Sale Price",
+			"stripe",
+			"£30",
+			"<a href=\"/customer/account/create/\"> <button class=\"button btn-cart\" title=\"add to basket\"  type=\"button\"><span><span>- REGISTER NOW -</span></span></button> </a>",
+			"Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . \"womens.html/\";",
+			"Fit First Time",
+			"$items",
+			"fft",
+			"Fft",
+			"Jeanography",
+			"Jeanography_Fft",
+			"Jheaton",
+			"Jheaton_Cust",
+			"jeanography",
+			".fftlightbox.",
+			"jheaton_cust",
+			"/",
+			"Georgia",
+			"ffffff",
+			"jonathanh",
+			"http://vc.dev.thisistommy.com",
+			"$datax",
+			",",
+			"	",
+			"	Buy",
+			"",
+			"550",
+			"550px",
+			"\"\\r\\n\"",
+			"PHP_EOL",
+			"</lot_ehd>",
+			"<lot_ehd>",
+			"ehd_",
+			"('ehd/ehd",
+			"EHD",
+			"</ehd",
+			"<ehd",
+			"EHD",
+			"EHD ",
+			"EHD",
+			"ehd",
+			"EHD",
+			"",
+			"ehb",
+			"Lot",
+			"ehb",
+			"Lot_EHB",
+			"100%",
+			"192,192,192",
+			"0,0,0",
+			"192,192,192",
+			"192,192,192,0.65",
+			"2,4,4,0.65",
+			"0,2,4,4",
+			"107",
+			"106",
+			"000000",
+			"css?v=0105)",
+			"<?php echo $url ?>",
+			"/skin/frontend/colorz/lot18europe/images/curators/",
+			"(../images/jqueryui/",
+			"src=\"http://signature.lot18.com/signature",
+			"\"http_user_agent\";s:81:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:11.0) Gecko/20100101 Firefox/11.0\"",
+			"90.152.2.34",
+			"uk.lot18.com",
+			"<ul style=\"font-size:14.4px; line-height:20px;\">",
+			"uk.lot18.com",
+			"",
+			"font-size: 18px;",
+			"    color: #231F20;\n    color: #231F20;\n231F20",
+			"cart"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.xdebug_inspect":
+	{
+		"height": 53.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"app/code/core/mage/sales/order/item",
+				"app/code/core/Mage/Sales/Model/Order/Item.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true
+}
