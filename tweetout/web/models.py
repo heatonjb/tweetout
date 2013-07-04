@@ -57,8 +57,9 @@ class User(models.Model):
 			tweet['text_html'] = self.addHTMLtoTweet( tweet['text'] )
 			tweet['created_at'] = self.to_datetime(tweet['created_at']).strftime("%d %b %Y %H:%M:%S")
 			tweet['tts_url'] = ''
-			payload = {'speech': self.cleanTweet('Tweet from ' + tweet['user']['screen_name'] + ' ' + tweet['text']) }
-			tweet['text_plain'] =  payload;
+			plain = self.cleanTweet('Tweet from ' + tweet['user']['screen_name'] + ' ,  ' + tweet['text'])
+			payload = {'speech': plain }
+			tweet['text_plain'] =  plain;
 			tweet['text_tts'] =  payload;
 	
 			#tweet['tts_url'] = requests.get("http://tts-api.com/tts.mp3?return_url=1&q=", params=payload)

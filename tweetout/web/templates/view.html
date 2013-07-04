@@ -23,7 +23,6 @@
 </head>
 
 <body>
-<script language="JavaScript" type="text/javascript" src="http://vhss.oddcast.com/vocalware_embed_functions.php?acc=3762990&js=1"></script><script language="JavaScript" type="text/javascript">AC_Vocalware_Embed(3762990,300, 400,'',1,1, 2319169, 0,1,0,'d2b6865e028780e42c09905c92e6353c',9);</script>
 
 
 	<div class="pretty navbar row" id="nav4">
@@ -37,15 +36,7 @@
     </h1>
     <div> 
       
-	   		 <audio class="projekktor" controls title="This is Tweetout" id="player_a">
-           
-			   </audio>
-       
-        <!-- <video class="projekktor" poster="intro.png" title="This is Projekktor" width="640" height="385" controls id="player_a">
-              <source src="http://www.projekktor.com/intro.mp4" type="video/mp4" />
-              <source src="http://www.projekktor.com/intro.webm" type="video/webm" />
-              <source src="http://www.projekktor.com/intro.ogv" type="video/ogg" />
-        </video>-->
+
    		</div>
       <input type="text" id="intervalid" name="intervalid" class="input"/>
       <input type="text" id="interval" name="interval" class="input" value="5000"/>
@@ -89,30 +80,37 @@
    
 
   
-  <section id="tweetssection">
+<section id="tweetssection">
 
-   {% for tweet in tweets %}
+  <article id="352734509696950300" data-src="https://twitter.com/LondonPopups/status/352734509696950272" data-saytext="Tweet from LondonPopups The Cube is now closed it ran until Sept 2013 I think so they must have filmed The Apprentice a long time ago" class="valign row unread tweetrow">
+    <div class="one columns imagediv image photo"><img class="profile_img" src="https://si0.twimg.com/profile_images/1428786277/LondonPopups_normal.png"></div>
+    <div class="eleven columns tweetcontent">
+        <div class="tweet-header">
+          <strong class="fullname">Incredibly Rich</strong>
+          <span class="username">@IncrediblyRich</span>
+          <small class="time">
+              <span class="">04 Jul 2013 10:23:55</span>
+          </small> 
+        </div>
+        <div class="tweet-text">The Cube is now closed - it ran until Sept 2013 I think - so they must have filmed The Apprentice a long time ago http://t.co/6B8EaxJc7J</div>
+        <div class="tweet-footer"><a href="#">Play ></a> </div>
+    </div>
+  </article> 
 
-   <article class="valign row" id="{{ tweet.id }}">
-   	  <div class="one columns">
-        <img class="profile_img" src="{{ tweet.user.profile_image_url_https }}"/>
-      </div>
-      <div class="three columns">
-      	{% load humanize %}
-        {{ tweet.created_at|naturaltime }} 
-      </div>  
-      <div class="one columns">
-        {{ tweet.user.screen_name }}
-      </div>
-      <div class="seven columns">
-        {{ tweet.text_html }} 
-      </div>
-      
-    </article>
-	 
-	      
-	   
-  {% endfor %}
+  <article id="352734509696950300" data-src="https://twitter.com/LondonPopups/status/352734509696950272" data-saytext="Tweet from LondonPopups The Cube is now closed it ran until Sept 2013 I think so they must have filmed The Apprentice a long time ago" class="valign row unread tweetrow">
+    <div class="one columns imagediv image photo"><img class="profile_img" src="https://si0.twimg.com/profile_images/1428786277/LondonPopups_normal.png"></div>
+    <div class="eleven columns tweetcontent">
+        <div class="tweet-header">
+          <strong class="fullname">Incredibly Rich</strong>
+          <span class="username">@IncrediblyRich</span>
+          <small class="time">
+              <span class="">04 Jul 2013 10:23:55</span>
+          </small> 
+        </div>
+        <div class="tweet-text ">The Cube is now closed - it ran until Sept 2013 I think - so they must have filmed The Apprentice a long time ago http://t.co/6B8EaxJc7J</div>
+        <div class="tweet-footer"><a href="#">Play ></a> </div>
+    </div>
+  </article>     
 
   </section>
 
@@ -146,6 +144,11 @@
   <!--<script src="{% static "js/libs/gumby.min.js" %}"></script>-->
   <script src="{% static "js/plugins.js" %}"></script>
   <script src="{% static "js/main.js" %}"></script>
+
+
+<!--www.vocalware.com-->
+  <script language="JavaScript" type="text/javascript" src="http://vhss.oddcast.com/vocalware_embed_functions.php?acc=3762990&js=1"></script><script language="JavaScript" type="text/javascript">AC_Vocalware_Embed(3762990,300, 400,'',1,1, 2319169, 0,1,0,'d2b6865e028780e42c09905c92e6353c',9);</script>
+
  
 
   <!-- Change UA-XXXXX-X to be your site's ID -->

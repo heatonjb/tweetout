@@ -138,6 +138,10 @@
 
   }
 
+  .tweetrow{
+  	padding: 10px;
+  	min-width:320px;
+  }
 
   #search {
   	font-size: 30px;
@@ -146,3 +150,59 @@
     width: 100%;
   }
 
+ .tweet-text {
+ 	color: #333333;
+ 	white-space: pre-wrap;
+ 	word-wrap: break-word;
+ 	font-family: "Helvetica Neue",​Arial,​sans-serif;
+ 	font-size: 14px;
+ 	
+ 	line-height: 18px;
+ 	text-align: left;
+ }
+
+ .tweet-footer {
+ 	text-align: left;
+ 	color: #999999;
+ 	font-size: 12px;
+ }
+
+ .username, .time {
+    font-size: 12px;
+}
+
+.tweetrow .time {
+    color: #BBBBBB;
+    float: right;
+    margin-top: 1px;
+    position: relative;
+}
+
+.fullname {
+    color: #333333;
+    font-weight: bold;
+}
+
+.tweet-header {
+	text-align: left;
+}
+
+.tweetrow .imagediv {
+	//padding: 10px;
+}
+
+.tweetcontent {
+	margin-left: 10px;
+}
+
+.profile_img {
+
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 767px) { 
+  .tweetcontent{ 
+  		padding: 10px;
+  	 }
+}

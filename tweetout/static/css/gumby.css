@@ -1894,4 +1894,23 @@ h1 a:hover { text-decoration: none; }
 .special:hover p { color: #ffe400; }
 
 @media only screen and (max-width: 767px) { h1 { font: bold italic 100px georgia, times new roman, serif; -webkit-transition-duration: .5s; } }
+.tweetrow { padding: 10px; min-width: 320px; }
+
 #search { font-size: 30px; height: 60px; text-align: center; width: 100%; }
+
+.tweet-text { color: #333333; white-space: pre-wrap; word-wrap: break-word; font-family: "Helvetica Neue",​Arial,​sans-serif; font-size: 14px; line-height: 18px; text-align: left; }
+
+.tweet-footer { text-align: left; color: #999999; font-size: 12px; }
+
+.username, .time { font-size: 12px; }
+
+.tweetrow .time { color: #BBBBBB; float: right; margin-top: 1px; position: relative; }
+
+.fullname { color: #333333; font-weight: bold; }
+
+.tweet-header { text-align: left; }
+
+.tweetcontent { margin-left: 10px; }
+
+/* Mobile */
+@media only screen and (max-width: 767px) { .tweetcontent { padding: 10px; } }
