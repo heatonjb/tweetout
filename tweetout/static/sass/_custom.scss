@@ -2,12 +2,14 @@
 
 
   html, body {
-    background: #fefefe;
+
+    background-image:url('../img/background2.jpg');
+	background-color:#cccccc;
   }
 
   .column, .columns, .tiles > li {
-    background: #ddd;
-        border: 1px solid #d0d0d0;
+    
+ 
     -webkit-transition-duration: .3s;
     -moz-transition-duration: .3s;
     -o-transition-duration: .3s;
@@ -16,7 +18,7 @@
   }
 
   .column:hover, .columns:hover {
-    background: #efefef;
+
     cursor: pointer;
     -webkit-transition-duration: .3s;
     -moz-transition-duration: .3s;
@@ -26,8 +28,17 @@
   }
 
   .row {
-    margin-bottom: 25px;
+    margin-bottom: 1px;
     text-align: center;
+    background-color : #FCFCFC;
+    -moz-transition:background-color 2s;
+    -webkit-transition:background-color 2s;
+    -o-transition:background-color 2s;
+    transition:background-color 2s;
+  }
+
+  .row.new {
+    background-color:yellow;
   }
 
   h1, h2 {
@@ -35,6 +46,21 @@
     color: #555;
     letter-spacing: -.09em;
     -webkit-transition-duration: 1s;
+  }
+
+  h1 a {
+  	font: bold italic 60px georgia, times new roman, serif;
+  	color: #fff;
+  	letter-spacing: -2px;
+  }
+
+  h1 a:hover {
+  	font: bold italic 60px georgia, times new roman, serif;
+  	color: #DDDDDD;
+  }
+
+  h1.columns {
+  	border: 0px;
   }
 
   h2  {
@@ -45,7 +71,7 @@
 
   p {
     font-size: 16px;
-    line-height: 60px;
+    line-height: 30px;
     margin-bottom: 0;
     color: #555;
 
@@ -58,7 +84,7 @@
 
   .column:hover p, .columns:hover p {
     
-    font-weight: bold;
+    color: #000;
 
     -webkit-transition-duration: .2s;
     -moz-transition-duration: .2s;
@@ -88,6 +114,10 @@
 
   a:hover {
     text-decoration:underline;
+  }
+
+  h1 a:hover {
+    text-decoration:none;
   }
 
   .special, .special:hover {
