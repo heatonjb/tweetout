@@ -19,7 +19,7 @@ def main(request, num="1"):
 	tweets.append("Tweetout - " + settings.TWITTER_CONSUMER_KEY)
 
 	twitter = Twython(settings.TWITTER_CONSUMER_KEY, settings.TWITTER_CONSUMER_SECRET)
-	auth = twitter.get_authentication_tokens(callback_url='http://127.0.0.1:8000/auth')  #callback_url=''
+	auth = twitter.get_authentication_tokens(callback_url='http://95.138.191.244:8000/auth')  #callback_url=''
 
 	#Not final tokens, save in session later
 	OAUTH_TOKEN = auth['oauth_token']
