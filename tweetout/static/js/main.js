@@ -22,13 +22,23 @@ Gumby.touch(function() {
 var intervalVar = '';
 var playingaudio = false;
 
+
 createTweet = function(item){
 
-	var text = $('<div>').attr('class',"seven columns").html(item.text_html);
-	var user = $('<div>').attr('class',"one columns").html(item.user.screen_name);
-	var date = $('<div>').attr('class',"three columns").html(item.created_at);
+	    
+    var header1 = '<strong class="fullname">'+ item.user.name +'</strong> ';
+    var header2 = '<span class="username"> @'+ item.user.screen_name  +'+</span> ';
+    var header3 = '<small class="time"><span class="">'+ item.created_at +'</span></small> ';
+
+	var tweetheader = $('<div>').attr('class',"tweet-header").html(header1 + header2 + header3);
+	var tweettext   = $('<div>').attr('class',"tweet-text").html(item.text_html);
+	var tweetfooter = $('<div>').attr('class',"tweet-footer").html('<div class="small success btn icon-right entypo icon-play" id="mstart"><a href="#" onclick="playTweet('+item.id+');"></a></div>');
+
+	var content = $('<div>').attr('class',"eleven columns tweetcontent").append(tweetheader).append(tweettext).append(tweetfooter);
+
+
 	var img = $('<img>').attr('class',"profile_img").attr('src',item.user.profile_image_url_https);
-	var inner = $('<div>').attr('class',"one columns").html(img);
+	var inner = $('<div>').attr('class',"one columns imagediv image photo").html(img);
 	
 	var newElement = $('<article>')              // Creates the element
     .attr('id',item.id) 
@@ -38,7 +48,7 @@ createTweet = function(item){
     .html(inner)        
     .prependTo($("#tweetssection"));       
     
-    $('#'+item.id).append(date).append(user).append(text);
+    $('#'+item.id).append(content);
  
     newElement.focus();
 	newElement.removeClass('new');
@@ -186,10 +196,68 @@ function vw_apiLoaded()
 	  
 }
 
+/** MODAL WINDOWs **/
+
+var Modals = {
+ 
+  init: function() {
+    $("<div />", {
+      "class": "modal",
+      "html" : 
+        "<h3>About</h3>" + 
+        "<p>Tweet Out reads your Tweets out loud.  If you have any suggestions, ideas, bugs please get in touch.</p>" + 
+        "<p>Please tweet me at <a href='https://twitter.com/TweetOutLoud'>@TweetOutLoud</a></p>" + 
+        "<br/><button class='modal-close medium warning btn'>Close</button><br/>"
+    }).appendTo("body");
+    
+    this.bindUIActions();
+  },
+  
+  bindUIActions: function() {
+    $(".modal-button, .modal-close").on("click", function() {
+      Modals.toggleModal(this);
+    });   
+  },
+  
+  toggleModal: function(button) {
+  
+    var modal = $(".modal");
+                      
+    if (modal.hasClass("show")) {
+      modal
+        .removeClass("show")
+      
+     setTimeout(function() {
+        modal
+          .removeClass()
+          .addClass("modal");
+      }, 100);
+      
+    } else {
+      modal
+        .removeClass()
+        .addClass("modal " + $(button).data("modal-type"));
+      
+      setTimeout(function() {
+        modal.addClass("show");
+      }, 100);
+      
+    }
+    
+  }
+  
+}
+
+
 
 
 // Document ready
 $(function() {
 	  attachHandlers(); 
+	  Modals.init();
 });
+
+
+
+
 
