@@ -1,139 +1,54 @@
-{% load staticfiles %}
-{% load l10n %}
-{% load tz %}
-<!DOCTYPE html>
-<head>
-	  <meta charset="utf-8">
+{% extends "base.html" %}
 
-	  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-	       More info: h5bp.com/b/378 -->
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-	<title>Tweetout - Read you tweets out loud</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-	
-	<link rel="stylesheet" href="{% static "css/gumby.css" %}" type="text/css">
-	<link rel="stylesheet" href="{% static "theme/style.css" %}" type="text/css">
-	<script src="{% static "jquery-1.7.2.min.js" %}" type="text/javascript"></script>
-	<script src="{% static "js/libs/modernizr-2.6.2.min.js" %}" type="text/javascript"></script>
-
-
-</head>
-
-<body>
-
-
-	<div class="pretty navbar row" id="nav4">
-    <a class="toggle" gumby-trigger="#nav4 &gt; ul" href="#"><i class="icon-menu"></i></a>
-    <h1 class="five columns logo">
-      <a href="/">
-        Tweet Out
-        <!--<h2>Read<span>your tweets <span>out</span> loud</span>-->
-        {{ msg.msg }}
-      </a>
-    </h1>
- 
-     
-    
-    <ul class="seven columns">
-      <li><a href="#" class="modal-button" data-modal-type="from-below">About</a></li>
-      <li>
-        <a href="#">Settings</a>
-        <div class="dropdown">
-          <ul>
-            <li><a href="#"> Update Frequency <input type="text" id="interval" name="interval" class="input" value="5000"/></a></li>
-            
-          </ul>
-        </div>
-      </li>
-      <li><a href="#" class="modal-button" data-modal-type="from-below">Contact</a></li>
-       <li>
-      <div class="medium success btn icon-right entypo icon-play" id="start"><a href="#">Start</a></div>
-      <div class="medium  btn icon-right entypo icon-stop danger" style="display:none" id="stop"><a href="#">Stop</a></div>
-      </li>
-    </ul>
-
-   
-
-    <section id="searchsection"> 
-    <div  class="row">
-      <div class="twelve columns">
-        <p><input type="text" id="search" name="search" value="Search for a @user or a #hashtag"></input></p>
-      </div>
-    </div>
-  </section>
-  </div>
-
+{% block content %}
+  {% include "nav.html" %}
+      
   <div class="container">
 
     <input type="hidden" id="intervalid" name="intervalid" class="input"/>
-   
-
-    <!--
-
-      <div class="medium success btn icon-right entypo icon-fast-backward" id="mbackward"><a href="#"></a></div>
-      <div class="medium success btn icon-right entypo icon-play" id="mstart"><a href="#"></a></div>
-      <div class="medium  btn icon-right entypo icon-stop danger" id="mstop"><a href="#"></a></div>
-      <div class="medium  btn icon-right entypo icon-fast-forward danger" id="mforward"><a href="#"></a></div>
-   -->
-
-  
+     
   <section id="tweetssection">
 
+           
+           
+          <section id="controlsheader">
+           <div class="row header">
+             <div class="seven columns"></div>
+             <h2 class="five columns"><a href="https://twitter.com/TweetOutLoud">#yourtweetsoutloud</a></h2>
+           </div>
+            <div class="row controls">
+                   <div class="four columns"></div>
+                   <div class="two columns"><div class="large success btn  tweet-button" id="previous"><a href="#">PREVIOUS</a></div></div>
+                   <div class="two columns"><div class=" large success btn icon-right entypo icon-stop tweet-button" id="stopplay"><a href="#"></a></div></div>
+                   <div class="two columns"><div class=" large success btn icon-right entypo icon-play tweet-button" id="startplay"><a href="#"></a></div></div>
+                   <div class="two columns"><div class=" large success btn tweet-button" id="next"><a href="#">NEXT</a></div>  </div>
+            </div>
+          <div class="row searchrow">
+            <form action="/view/" id="searchForm" method="post">{% csrf_token %}
+              <div class="twelve columns field searchfield">
+                <input class="" name="search" id="search" type="number" placeholder="Search for a @user or  a #hashtag" value="{{ search }}">
+                    <a  class="searchicon" href="javascript:document.getElementById('searchForm').submit();"></a>
+                </input>
+              </div>
+              <input type="submit" style="display:none"/>
+            </form>
+          </div>
+          </section>
+
+        
    
+    
+</div>
+
+
+          <section id="tweetssection-tweets"></section>
+
 
   </section>
 
   </div> <!--! end of #container -->
 
 
-
-  <!-- Grab Google CDN's jQuery, fall back to local if offline -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{% static "js/libs/jquery-1.9.1.min.js" %}"><\/script>')</script>
-
-  
-  <!--Include gumby.js followed by UI modules.
-  Or concatenate and minify into a single file-->
-  <script src="{% static "js/libs/gumby.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.retina.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.fixed.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.skiplink.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.toggleswitch.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.checkbox.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.radiobtn.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.tabs.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.navbar.js" %}"></script>
-  <script src="{% static "js/libs/ui/gumby.fittext.js" %}"></script>
-  <script src="{% static "js/libs/ui/jquery.validation.js" %}"></script>
-  <script src="{% static "js/libs/gumby.init.js" %}"></script>
-
-  
-  <!--<script src="{% static "js/libs/gumby.min.js" %}"></script>-->
-  <script src="{% static "js/plugins.js" %}"></script>
-  <script src="{% static "js/main.js" %}"></script>
+{% endblock %}
 
 
-<!--www.vocalware.com-->
-  <script language="JavaScript" type="text/javascript" src="http://vhss.oddcast.com/vocalware_embed_functions.php?acc=3762990&js=1"></script><script language="JavaScript" type="text/javascript">AC_Vocalware_Embed(3762990,300, 400,'',1,1, 2319169, 0,1,0,'d2b6865e028780e42c09905c92e6353c',9);</script>
-
- 
-
-  <!-- Change UA-XXXXX-X to be your site's ID -->
-  <!--<script>
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>-->
-
-  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
-       chromium.org/developers/how-tos/chrome-frame-getting-started -->
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
-
-  </body>
-</html>

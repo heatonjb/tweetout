@@ -35,11 +35,17 @@ class User(models.Model):
 		
 		return dt
 
-	def getTimeline(self,twitter,count=60,since_id=1):
+	def getTimeline(self,twitter,count=50,since_id=1):
 		
-		timeline = twitter.get_home_timeline(count=5,since_id=self.last_tweet_id,trim_user=False,contributor_details=True)
+		timeline = twitter.get_home_timeline(count=50,since_id=self.last_tweet_id,trim_user=False,contributor_details=True)
 	
 		return timeline
+
+	def getSearch(self,twitter,searchstr,count=50,since_id=1):
+		
+		search = twitter.search(count=50,since_id=self.last_tweet_id,q=searchstr)
+	
+		return search
 
 	def cleanTweet(self,tweet):
 		line = ' '.join(re.sub("(@[A-Za-z0-9]+)|(#[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)"," ",tweet).split())
@@ -49,9 +55,14 @@ class User(models.Model):
 		tweeter  = re.sub('(@[A-Za-z0-9]+)', '', tweet)
 		return tweeter
 
-	def addTTS(self,tweets,firstonly=True):
+	def addTTS(self,tweets,firstonly=True,timeline=True):
 		
+		try:
+			tweets = tweets['statuses']
+		except Exception, e:
+			pass
 		
+
 		first = True
 		for tweet in tweets:
 			tweet['text_html'] = self.addHTMLtoTweet( tweet['text'] )
@@ -63,17 +74,21 @@ class User(models.Model):
 			tweet['text_tts'] =  payload;
 	
 			#tweet['tts_url'] = requests.get("http://tts-api.com/tts.mp3?return_url=1&q=", params=payload)
-			r = requests.get("http://speech.jtalkplugin.com/api/", params=payload)
-			data = r.json()
-			tweet['tts_url'] = [data['data']['url']]
+			#r = requests.get("http://speech.jtalkplugin.com/api/", params=payload)
+			#data = r.json()
+			#tweet['tts_url'] = [data['data']['url']]
 			#if firstonly:
 			#	r = requests.get("http://speech.jtalkplugin.com/api/", params=payload)
 			#	data = r.json()
 			#	tweet['tts_url'] = [data['data']['url']]
 
 			if first==True:
-				self.last_tweet_id = tweet['id']
-				self.save()
+				if timeline:
+					self.last_tweet_id = tweet['id']
+					self.save()
+				else:
+					request.session['last_search_tweet_id'] = tweet['id'];
 				first = False
+				
 		return tweets
 

@@ -40,7 +40,7 @@ html { font-size: 16px; line-height: 1.625em; }
 
 html * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-body { background: white; font-family: "Open Sans"; font-weight: 400; color: #555555; position: relative; -webkit-font-smoothing: antialiased; }
+body { background: #cccccc; font-family: "Open Sans"; font-weight: 400; color: #555555; position: relative; -webkit-font-smoothing: antialiased; }
 @media only screen and (max-width: 767px) { body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; width: 100%; min-width: 0; } }
 
 html, body { height: 100%; }
@@ -1826,7 +1826,7 @@ form fieldset legend { padding: 5px 10px; }
 .tabs.vertical .tab-nav { border: none; }
 .tabs.vertical .tab-nav > li { display: block; margin: 0; margin-bottom: 5px; }
 .tabs.vertical .tab-nav > li.active { position: relative; z-index: 99; }
-.tabs.vertical .tab-nav > li.active > a { border-right: 1px solid white; }
+.tabs.vertical .tab-nav > li.active > a { border-right: 1px solid #cccccc; }
 .tabs.vertical .tab-nav > li > a { border: 1px solid #e5e5e5; -webkit-border-radius: 4px 0 0 4px; -moz-border-radius: 4px 0 0 4px; -ms-border-radius: 4px 0 0 4px; -o-border-radius: 4px 0 0 4px; border-radius: 4px 0 0 4px; }
 .tabs.vertical .tab-content { padding: 10px 0 30px 20px; margin-left: -1px; border-left: 1px solid #e5e5e5; }
 
@@ -1853,17 +1853,25 @@ body .video.twitch, body .video.youtube.show_controls { padding-top: 30px; }
 .modal.active { z-index: 999999; }
 .modal.active, .modal.active > .content { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); opacity: 1; }
 
-html, body { background-image: url("../img/background2.jpg"); background-color: #cccccc; }
+html, body { background-color: #ccc; background-image: url(../img/tweetout_web_1280.png); background-repeat: no-repeat; background-position: center 19px; background-size: cover; width: 100%; height: 100%; }
+
+#bg { position: fixed; top: 0; left: 0; /* Preserve aspet ratio */ min-width: 100%; min-height: 100%; }
 
 .column, .columns, .tiles > li { -webkit-transition-duration: .3s; -moz-transition-duration: .3s; -o-transition-duration: .3s; -ms-transition-duration: .3s; transition-duration: .3s; }
 
 .column:hover, .columns:hover { cursor: pointer; -webkit-transition-duration: .3s; -moz-transition-duration: .3s; -o-transition-duration: .3s; -ms-transition-duration: .3s; transition-duration: .3s; }
 
-.row { margin-bottom: 1px; text-align: center; background-color: #FCFCFC; -moz-transition: background-color 2s; -webkit-transition: background-color 2s; -o-transition: background-color 2s; transition: background-color 2s; }
+.row { margin-bottom: 1px; text-align: center; background-color: #ffffff; -moz-transition: background-color 5s; -webkit-transition: background-color 5s; -o-transition: background-color 5s; transition: background-color 5s; }
 
-.row.new { background-color: yellow; }
+.row .tweet-header { position: relative; background-color: #39b54a; -moz-transition: background-color 5s; -webkit-transition: background-color 5s; -o-transition: background-color 5s; transition: background-color 5s; }
 
-h1, h2 { font: bold italic 60px georgia, times new roman, serif; color: #555; letter-spacing: -.09em; -webkit-transition-duration: 1s; }
+.row.new .tweet-header { background-color: #f9d93d; }
+
+.row.header, .row.controls { background-color: transparent; height: 50px; }
+
+.row.controls .two.columns { text-align: right; }
+
+h1, h2 { font: bold italic 60px georgia, times new roman, serif; color: #fff; letter-spacing: -.09em; -webkit-transition-duration: 1s; }
 
 h1 a { font: bold italic 60px georgia, times new roman, serif; color: #fff; letter-spacing: -2px; }
 
@@ -1871,7 +1879,8 @@ h1 a:hover { font: bold italic 60px georgia, times new roman, serif; color: #DDD
 
 h1.columns { border: 0px; }
 
-h2 { font-size: 21px; font-weight: normal; line-height: 1.6; }
+h2 { font-family: helvetica; font-size: 33px; font-style: normal; font-weight: bold; letter-spacing: 0.005rem; text-align: right; }
+h2 a, h2 a:hover { color: #fff; text-decoration: none; }
 
 p { font-size: 16px; line-height: 30px; margin-bottom: 0; color: #555; -webkit-transition-duration: .2s; -moz-transition-duration: .2s; -o-transition-duration: .2s; -ms-transition-duration: .2s; transition-duration: .2s; }
 
@@ -1893,30 +1902,62 @@ h1 a:hover { text-decoration: none; }
 
 .special:hover p { color: #ffe400; }
 
-@media only screen and (max-width: 767px) { h1 { font: bold italic 100px georgia, times new roman, serif; -webkit-transition-duration: .5s; } }
-.tweetrow { padding: 10px; min-width: 320px; }
+.tweetrow { min-width: 320px; margin-top: 20px; position: relative; }
 
-#search { font-size: 30px; height: 60px; text-align: center; width: 100%; }
+.tweetrow.playing { border: 1px black solid; }
 
-.tweet-text { color: #333333; white-space: pre-wrap; word-wrap: break-word; font-family: "Helvetica Neue",​Arial,​sans-serif; font-size: 14px; line-height: 18px; text-align: left; }
+#search { font-size: 20px; height: 46px; padding-left: 10px; text-align: left; width: 100%; border: none; }
+
+.searchicon { background: url("../img/search_icon.png") no-repeat scroll center center transparent; bottom: 4px; display: block; height: 40px; position: absolute; right: 11px; width: 40px; }
+
+.searchfield { width: 250px; line-height: 16px; padding: 0px; font-family: arial, sans-serif; border: 0px solid #CCC; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; }
+
+.tweet-text { color: #333333; font-family: "Helvetica Neue",​Arial,​sans-serif; font-size: 16px; line-height: 25px; text-align: left; white-space: pre-wrap; word-wrap: break-word; padding-left: 14px; padding-right: 14px; }
 
 .tweet-footer { text-align: right; color: #999999; font-size: 12px; }
 
-.username, .time { font-size: 12px; }
+.row.tweet-content-row { margin: 20px 0 0; }
 
-.tweetrow .time { color: #BBBBBB; float: right; margin-top: 1px; position: relative; }
+.profile_img { margin: 0 14px 0 0; }
 
-.fullname { color: #333333; font-weight: bold; }
+.tweet-header { text-align: left; background-color: #39b54a; color: white; padding: 8px 10px; height: 43px; }
+.tweet-header .username { color: #f7f7f7; }
+.tweet-header .time { float: right; margin-top: 1px; position: relative; color: #f7f7f7; }
 
-.tweet-header { text-align: left; }
+#tweetssection-tweets .btn.tweet-button { float: left; background-color: #00adee; margin: 10px 14px; height: 31px; width: 98px; border: #00adee; }
 
-.tweetcontent { margin-left: 10px; }
+#tweetssection-tweets .btn.tweet-button:hover { background-color: #0071bc; border: #0071bc; -o-transition: .5s; -ms-transition: .5s; -moz-transition: .5s; -webkit-transition: .5s; /* ...and now for the proper property */ transition: .5s; }
 
-.navbar .logo { padding: 0 20px; }
+#controlsheader .searchrow .columns { margin: 0px; }
+
+#tweetssection .row.controls .btn.tweet-button { background-color: #0071bc; margin: 0px 0px; height: 31px; width: 125px; font-size: 16px; border: #00adee; line-height: 31px; margin: 0 0 0 15px; }
+
+#tweetssection .row.controls .btn.tweet-button a { padding: 0px; line-height: 31px; }
+
+#tweetssection .row.controls .btn.tweet-button:hover { background-color: #cccccc; }
+
+#tweetssection-tweets .btn.large.icon-right a:after, #tweetssection-tweets .row.controls .skiplink.large.icon-right a:after { bottom: 13px; right: 42px; }
+
+section#tweetssection .row.controls .btn.large.icon-right a:after, section#tweetssection .row.controls .skiplink.large.icon-right a:after { bottom: 0; right: 56px; }
+
+.tweetcontent { margin-left: 10px; background-color: transparent; }
+
+.navbox { background-color: #4d4d4d; width: 100%; height: 20px; }
+
+.navbar { background-color: #4d4d4d; height: 20px; min-height: 20px; position: absolute; top: 0px; left: 0px; right: 0px; }
+.navbar .logo { display: inline-block; height: 20px; line-height: 20px; text-align: left; }
+.navbar .logo a { color: #4d4d4d; font-family: helvetica; text-transform: lowercase; font-size: 19px; height: 20px; line-height: 19px; letter-spacing: 1px; }
+.navbar .column, .navbar .columns, .navbar #nav4 { background-color: #4d4d4d; }
+.navbar ul li { height: 20px; line-height: 20px; }
+.navbar ul li > a { height: 20px; line-height: 18px; font-size: 0.6em; color: #999999; }
 
 /* Mobile */
 @media only screen and (max-width: 767px) { .tweetcontent { padding: 10px; }
-  .navbar .column, .navbar .columns, #nav4 { background-image: linear-gradient(#7b8085, #313436); box-shadow: 0 1px 1px #7b8085 inset, 0 1px 2px rgba(0, 0, 0, 0.8) !important; } }
+  section#controlsheader h2 { font-size: 20px; }
+  #tweetssection .row.controls .btn.tweet-button { margin: 2px 5px; width: 100px; }
+  .row.controls { height: 81px; }
+  #search { font-size: 13px; }
+  .searchfield { border: 0px solid #CCCCCC; } }
 /* MODAL WINDOWS */
 body { /* jank buster */ -webkit-transform: translateZ(0); }
 
@@ -1933,3 +1974,25 @@ body { /* jank buster */ -webkit-transform: translateZ(0); }
 .modal.from-below.show { opacity: 1; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); transform: scale(1); box-shadow: 0 0 300px rgba(0, 0, 0, 0.3); pointer-events: auto; }
 
 .navbar a.toggle { top: 8%; }
+
+#floater { float: left; height: 50%; margin-bottom: -120px; }
+
+#content { clear: both; height: 240px; position: relative; }
+
+body.home h1 { position: absolute; left: -999em; }
+body.home form { margin: auto 76% auto 13%; position: absolute; top: 38%; width: 632px; }
+body.home form input { content: "➦"; }
+body.home form label { color: #fff; font-size: 2rem; font-family: helvetica; }
+
+#tweetssection { margin-top: 20%; }
+
+#tweetssection .arrow-down { border-left: 0 solid transparent; border-right: 66px solid transparent; border-top: 22px solid #39b54a; height: 0; position: absolute; right: 1px; top: 43px; width: 0; }
+
+.imagediv { margin-top: -8px; }
+
+@media only screen and (max-width: 767px) { h1 { font: bold italic 100px georgia, times new roman, serif; -webkit-transition-duration: .5s; }
+  .profile_img { display: none; } }
+@media only screen and (max-width: 767px) { .tweet-header { font-size: 10px; }
+  .tweet-text { font-size: 12px; }
+  .navbar ul { top: 20px; }
+  .navbar .toggle { z-index: 9999999; } }

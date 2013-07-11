@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.views.generic import View
@@ -16,28 +17,31 @@ def main(request, num="1"):
 	tweets = ['1111','22222','3333']
 	template_name = 'main_view.html'
 
-	tweets.append("Tweetout - " + settings.TWITTER_CONSUMER_KEY)
 
-	twitter = Twython(settings.TWITTER_CONSUMER_KEY, settings.TWITTER_CONSUMER_SECRET)
-	auth = twitter.get_authentication_tokens(callback_url='http://95.138.191.244:8000/auth')  #callback_url=''
+	if request.POST:
 
-	#Not final tokens, save in session later
-	OAUTH_TOKEN = auth['oauth_token']
-	OAUTH_TOKEN_SECRET = auth['oauth_token_secret']
+		tweets.append("Tweetout - " + settings.TWITTER_CONSUMER_KEY)
 
-	request.session['OAUTH_TOKEN'] = OAUTH_TOKEN
-	request.session['OAUTH_TOKEN_SECRET'] = OAUTH_TOKEN_SECRET
+		twitter = Twython(settings.TWITTER_CONSUMER_KEY, settings.TWITTER_CONSUMER_SECRET)
+		auth = twitter.get_authentication_tokens(callback_url=settings.TWITTER_CALLBACK_URL)  #callback_url=''
 
-	#redirect to this url
-	URL = auth['auth_url']
-	print "********************"
-	print OAUTH_TOKEN
-	print OAUTH_TOKEN_SECRET
+		#Not final tokens, save in session later
+		OAUTH_TOKEN = auth['oauth_token']
+		OAUTH_TOKEN_SECRET = auth['oauth_token_secret']
 
-	if URL:
-		return HttpResponseRedirect(URL)
+		request.session['OAUTH_TOKEN'] = OAUTH_TOKEN
+		request.session['OAUTH_TOKEN_SECRET'] = OAUTH_TOKEN_SECRET
 
-	return render_to_response('main_view.html', {'tweets': tweets})
+		#redirect to this url
+		URL = auth['auth_url']
+		print "********************"
+		print OAUTH_TOKEN
+		print OAUTH_TOKEN_SECRET
+
+		if URL:
+			return HttpResponseRedirect(URL)
+	return render_to_response("main_view.html",{'tweets': tweets}, context_instance=RequestContext(request))
+
     
 
 def auth(request, num="1"):
@@ -71,9 +75,13 @@ def view(request, num="1"):
    	
 	msg = {'success':True,'msg':""}
 	tweets = []
-	
+	search = '';
 
-	return render_to_response('view.html', {'tweets': tweets, 'msg':msg})
+	if request.POST:
+		search = request.POST.get("search", "")
+	
+	return render_to_response("view.html",{'tweets': tweets, 'msg':msg, 'search':search}, context_instance=RequestContext(request))
+
 
 
 def update(request):
@@ -83,7 +91,15 @@ def update(request):
 		try:
 			user = User.objects.get(id=request.session['userid'])
 			twitterAuth = user.getTwython(request.session['OAUTH_TOKEN'],request.session['OAUTH_TOKEN_SECRET'])
-			timeline = user.getTimeline(twitter=twitterAuth,count=50,since_id=user.last_tweet_id)
+			if GET.get("search"):
+				
+				if 'last_search_tweet_id' in request.session:
+					lastid = request.session['last_search_tweet_id'];
+				else:
+					lastid = ''
+				timeline = user.getSearch(twitter=twitterAuth,count=50,since_id=lastid,searchstr=GET.get("search"))
+			else:
+				timeline = user.getTimeline(twitter=twitterAuth,count=50,since_id=user.last_tweet_id)
 			tweets  = user.addTTS(tweets=timeline,firstonly=True)
 			results = []
 			for tweet in tweets:

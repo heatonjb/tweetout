@@ -20,7 +20,15 @@ Gumby.touch(function() {
 
 
 var intervalVar = '';
+var intervalStarted = false;
 var playingaudio = false;
+var playlist = [];
+var playlist_new = [];
+var playlist_old= [];
+var currentPlay;
+    
+           
+          
 
 
 createTweet = function(item){
@@ -28,28 +36,28 @@ createTweet = function(item){
 	    
     var header1 = '<strong class="fullname">'+ item.user.name +'</strong> ';
     var header2 = '<span class="username"> @'+ item.user.screen_name  +'+</span> ';
-    var header3 = '<small class="time"><span class="">'+ item.created_at +'</span></small> ';
+    var header3 = '<span class="time">'+ item.created_at +'</span>';
+
+
+
+    var textrow = '<div class="eleven columns tweet-text">'+ item.text_html +'</div>';
+    var imagerow = '<div class="one columns imagediv  "><img src="'+ item.user.profile_image_url_https + '" class="profile_img"></div>';
 
 	var tweetheader = $('<div>').attr('class',"tweet-header").html(header1 + header2 + header3);
-	var tweettext   = $('<div>').attr('class',"tweet-text").html(item.text_html);
-	var tweetfooter = $('<div>').attr('class',"tweet-footer").html('<div class="small success btn icon-right entypo icon-play" id="mstart"><a href="#" onclick="playTweet('+item.id+');"></a></div>');
+	var tweettext   = $('<div>').attr('class',"row tweet-content-row").html(textrow + imagerow);
+	var tweetfooter = $('<div>').attr('class',"tweet-footer row").html('<div class="two columns"><div class="large success btn icon-right entypo icon-play tweet-button" id="mstart"> <a href="#" onclick="playTweet('+item.id+');"></a></div></div><div class="nine columns"></div><div class="one columns"></div>');
 
-	var content = $('<div>').attr('class',"eleven columns tweetcontent").append(tweetheader).append(tweettext).append(tweetfooter);
-
-
-	var img = $('<img>').attr('class',"profile_img").attr('src',item.user.profile_image_url_https);
-	var inner = $('<div>').attr('class',"one columns imagediv image photo").html(img);
+	var content = $('<div>').attr('class',"twelve columns tweetcontent").append(tweetheader).append(tweettext).append(tweetfooter);
 	
 	var newElement = $('<article>')              // Creates the element
     .attr('id',item.id) 
     .attr('data-src','https://twitter.com/'+item.user.screen_name+'/status/'+item.id_str)
     .attr('data-saytext',item.text_plain)
     .attr('class',"valign row new unread tweetrow")
-    .html(inner)        
-    .prependTo($("#tweetssection"));       
+    .html(content)        
+    .prependTo($("#tweetssection-tweets"));       
     
-    $('#'+item.id).append(content);
- 
+     
     newElement.focus();
 	newElement.removeClass('new');
 
@@ -58,23 +66,71 @@ createTweet = function(item){
 	});
 
 	
-	playTweet(item.id); 
+	//playTweet(item.id); 
+	playlistAdd(item.id);
 }
 
-createTweets = function (json) {
-	$.each(json, function(i, item) {
-       console.log(item.text)
+playlistPlay = function(){
+	var length = playlist.length,element = null;
+	if(playlist.length > 0){
+	   		
+	   		if(playingaudio == false){
+	   			currentPlay = playlistRemove();
+	   			playTweet(currentPlay);
+	   		}else{
+	   			console.log("playlistplay cant play tweet as playing audio already.");
+	   		}
 	   
+	}else{
+		console.log("playlist is empty....");
+	}
+
+}
+
+playlistStop = function(){
+	stop();
+}
+
+playlistAdd = function(id) {
+	playlist.push(id)
+}
+
+playlistRemove = function() {
+	var id = playlist.shift();
+	playlist_old.push(id);
+	return id;
+}
+
+
+
+nextPlay = function(){
+	playlistStop();
+	playlistPlay();
+}
+
+previousPlay = function(){
+	playlistStop();
+	playlist.unshift(playlist_old.shift());
+	playlistPlay();
+
+}
+
+
+
+
+createTweets = function (json) {
+	$.each(json, function(i, item) {   
 	   setTimeout(function(){
 	   		createTweet(item);
-	   },1000)
+	   },5000)
 	});
 	
 }
 
 getUpdate = function() {
 
-	$.getJSON("/update/", { uid:111 }, function(json){
+	var searchstr = encodeURIComponent($('#search').val());
+	$.getJSON("/update/", { uid:111,search:searchstr }, function(json){
 	  //console.log(json);
 	  if(json.success==false) {
 	  		alert(json.msg);
@@ -84,7 +140,7 @@ getUpdate = function() {
 	  			console.log(json.msg);
 	  		}else{
 	      		createTweets(json);
-	      		playpause();
+	      		playlistPlay();
       		}
   	  }
   });
@@ -93,14 +149,18 @@ getUpdate = function() {
 
 playTweet = function(id){
 	tweet = $('#'+id);
+	tweet.addClass('playing');
 	text = tweet.data('saytext');
-	console.log("playing " + id + " - "  );
-	console.log(tweet.data('saytext'));
-	say(text);
+	console.log("play Tweet " + text);
+	if($("#mute").is(':checked')){
+		console.log('Cant Talk - Muted');
+	}else {
+		say(text);
+		playingaudio = true;
+	}
 }
 
 say = function(text) {
-	console.log('say - ' + text);
 	sayText(text,1,1,3); 
 }
 
@@ -121,12 +181,13 @@ clear = function() {
 
 stopUpdating = function() {
 	intervalVar=window.clearInterval($('#intervalid').val());
-	$('#stop').hide();
-	$('#start').show();
 	console.log("STOPPED");
 }
 
 startUpdating = function() {
+
+
+	getUpdate();
 	intervalVar = self.setInterval(function(){clock()},$('#interval').val());
 	$('#intervalid').val(intervalVar);
 	function clock()
@@ -136,14 +197,12 @@ startUpdating = function() {
 	 			getUpdate();
 	 		}
 	  }
-	$('#stop').show();
-	$('#start').hide();
+	
 	console.log("STARTED");
 }
 
 openTweetLink = function(id){
 	url = $("#"+id).data("src");
-	console.log(url)
 	window.open(url);
   	return false;
 }
@@ -170,6 +229,8 @@ function vw_talkStarted () {
 function vw_talkEnded () {
 	console.log('vw_talkEnded');
 	playingaudio = false;
+	$('.tweetrow').removeClass('playing');
+	playlistPlay();
 }
 
 //function vw_audioProgress(percent_played){
@@ -182,7 +243,7 @@ function vw_apiLoaded()
        console.log('voice loaded')	;
        //turn on queuing
         setStatus(0,1);
-       	//startUpdating();
+       	startUpdating();
    } 
 
  attachHandlers = function() {
@@ -192,6 +253,20 @@ function vw_apiLoaded()
 	  $('#stop').on("click",function(event){
 			stopUpdating();
 	  });
+	  $('#stopplay').on("click",function(event){
+			stop();
+	  });
+	  $('#startplay').on("click",function(event){
+			playlistPlay();
+	  });
+	  $('#next').on("click",function(event){
+			nextPlay();
+	  });
+	  $('#previous').on("click",function(event){
+			previousPlay();
+	  });
+
+	  
 	  
 	  
 }

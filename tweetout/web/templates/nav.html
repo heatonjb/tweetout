@@ -1,0 +1,49 @@
+
+<nav class="navbox">
+  <div class=" navbar row" id="nav4">
+    <a class="toggle" gumby-trigger="#nav4 &gt; ul" href="#"><i class="icon-menu"></i></a>
+    <h1 class="eight columns logo">
+      <a href="/">
+        Tweet Out
+        <!--<h2>Read<span>your tweets <span>out</span> loud</span>-->
+        {{ msg.msg }}
+      </a>
+    </h1>
+ 
+     
+    
+    <ul class="four columns">
+
+      <li>
+        <a href="#">Settings</a>
+        <div class="dropdown">
+          <ul>
+            <li><a href="#"> Update Frequency <input type="text" id="interval" name="interval" class="input" value="120000"/></a></li>
+            <li><div class=" " id="stop"><a href="#">Stop Updating</a></div></li>
+            <li><div class=" " id="start"><a href="#">Start Updating</a></div></li>
+            <li><div class=" " id="start"><label for="mute">Mute</label> <input type="checkbox" id="mute" name="mute" class="input" /></div></li>
+
+                   <div class="two columns"></div>	
+          </ul>
+        </div>
+      </li>
+      <li><a href="#" class="modal-button" data-modal-type="from-below">Contact</a></li>
+       
+    </ul>
+
+   
+<!--
+    <section id="searchsection"> 
+    <div  class="row">
+      <div class="twelve columns">
+        <p><input type="text" id="search" name="search" value="Search for a @user or a #hashtag"></input></p>
+      </div>
+    </div>
+  </section>
+-->
+</div>
+
+
+   
+
+</nav>

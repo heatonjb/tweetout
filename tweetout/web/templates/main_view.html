@@ -1,9 +1,20 @@
-<h1>Tweet Out</h1>
+{% extends "base.html" %}
 
-<ul>
-  {% for tweet in tweets %}
-	  <li class="{% cycle 'row1' 'row2' %}">
-	        {{ tweet }}
-	   </li>
-  {% endfor %}
-</ul>
+{% block bodyclass %}home{% endblock %}
+
+{% block content %}
+	
+	<h1> Tweet Out - Read your tweet out loud</h1>
+
+    	<form action="/" method="post">{% csrf_token %}
+				
+				<h2><label for="sub">read your tweets out loud...</label></h2>
+				<div class="medium default btn icon-right entypo icon-forward">	
+					<input id="sub" name="sub" type="submit" value="START" ></input>
+				</div>
+				
+			</form>
+    	
+	</div>
+
+{% endblock %}
