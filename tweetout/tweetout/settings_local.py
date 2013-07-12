@@ -95,7 +95,8 @@ SECRET_KEY = '^0w211t7p+)yjgspi4r4m(@0hgrs+3_8^k!fqcpug@--8qzm$8'
 
 TWITTER_CONSUMER_KEY = 'UXGPhu7Mxmb7UrGskHnofg'
 TWITTER_CONSUMER_SECRET = 'OFUKyMZXvOSwcFyyXKJYbwrLqdYICpflrOZAuaNVvs'
-TWITTER_CALLBACK_URL = 'http://95.138.191.244:8000/auth'
+TWITTER_CALLBACK_URL = 'http://127.0.0.1:8000/auth'
+
 
 def custom_show_toolbar(request):
     return True  # Always show toolbar, for example purposes only.
