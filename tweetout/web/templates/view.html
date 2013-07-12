@@ -26,7 +26,7 @@
           <div class="row searchrow">
             <form action="/view/" id="searchForm" method="post">{% csrf_token %}
               <div class="twelve columns field searchfield">
-                <input class="" name="search" id="search" type="number" placeholder="Search for a @user or  a #hashtag" value="{{ search }}">
+                <input class="" name="search" id="search" type="text" placeholder="Search for a @user or  a #hashtag" value="{{ search }}">
                     <a  class="searchicon" href="javascript:document.getElementById('searchForm').submit();"></a>
                 </input>
               </div>
