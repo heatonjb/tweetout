@@ -155,6 +155,9 @@ playTweet = function(id){
 	if($("#mute").is(':checked')){
 		console.log('Cant Talk - Muted');
 	}else {
+		$('html, body').animate({
+	         scrollTop: tweet.offset().top
+	     }, 2000);
 		say(text);
 		playingaudio = true;
 	}
@@ -186,7 +189,7 @@ stopUpdating = function() {
 
 startUpdating = function() {
 
-
+	if($('#interval').length){
 	getUpdate();
 	intervalVar = self.setInterval(function(){clock()},$('#interval').val());
 	$('#intervalid').val(intervalVar);
@@ -197,8 +200,8 @@ startUpdating = function() {
 	 			getUpdate();
 	 		}
 	  }
-	
 	console.log("STARTED");
+	}
 }
 
 openTweetLink = function(id){
