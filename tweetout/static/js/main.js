@@ -188,6 +188,7 @@ clear = function() {
 }
 
 stopUpdating = function() {
+	$('#controlsheader').removeClass('loading');	
 	intervalVar=window.clearInterval($('#intervalid').val());
 	console.log("STOPPED");
 }
@@ -195,6 +196,7 @@ stopUpdating = function() {
 startUpdating = function() {
 
 	if($('#interval').length){
+	$('#controlsheader').addClass('loading');	
 	getUpdate();
 	intervalVar = self.setInterval(function(){clock()},$('#interval').val());
 	$('#intervalid').val(intervalVar);
