@@ -30,7 +30,6 @@
   .column, .columns, .tiles > li {
     
  
-    -webkit-transition-duration: .3s;
     -moz-transition-duration: .3s;
     -o-transition-duration: .3s;
     -ms-transition-duration: .3s;
@@ -40,7 +39,6 @@
   .column:hover, .columns:hover {
 
     cursor: pointer;
-    -webkit-transition-duration: .3s;
     -moz-transition-duration: .3s;
     -o-transition-duration: .3s;
     -ms-transition-duration: .3s;
@@ -51,19 +49,11 @@
     margin-bottom: 1px;
     text-align: center;
     background-color : #ffffff;
-    -moz-transition:background-color 2s;
-    -webkit-transition:background-color 3s;
-    -o-transition:background-color 4s;
-    transition:background-color 2s;
   }
 
   .row .tweet-header{
     position: relative;
     background-color:$tweet-header;
-    -moz-transition:background-color 2s;
-    -webkit-transition:background-color 2s;
-    -o-transition:background-color 2s;
-    transition:background-color 2s;
   }
 
   .row.new .tweet-header{
@@ -83,7 +73,6 @@
     font: bold italic 60px georgia, times new roman, serif;
     color: #fff;
     letter-spacing: -.09em;
-    -webkit-transition-duration: 1s;
   }
 
   h1 a {
@@ -123,7 +112,6 @@
     margin-bottom: 0;
     color: #555;
 
-    -webkit-transition-duration: .2s;
     -moz-transition-duration: .2s;
     -o-transition-duration: .2s;
     -ms-transition-duration: .2s;
@@ -134,7 +122,6 @@
     
     color: #000;
 
-    -webkit-transition-duration: .2s;
     -moz-transition-duration: .2s;
     -o-transition-duration: .2s;
     -ms-transition-duration: .2s;
@@ -287,7 +274,6 @@
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
-  -webkit-transition:.5s;
   /* ...and now for the proper property */
   transition:.5s;
 }
@@ -301,18 +287,16 @@
 }
 
 .row.controls.fixed {
-  background-color: #ccc;
+  background-color: #4D4D4D;
   width: 100%;
-  bottom: 0%;
   max-width:100%;
   padding-right: 10%;
-  z-index: 99999;
+
+  position:fixed !important; 
+  z-index:99999 !important; 
+  bottom:0 !important;
 
 }
-
- .row.controls.fixed {
-    background-color: #4D4D4D;
-  }
 
   .row.controls.fixed ul {
     margin: 5px;
@@ -435,7 +419,6 @@ body {
   margin-left: -125px;
   padding: 1em;
   opacity: 0;
-  -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
   -ms-transition: 0.2s;
   transition: 0.2s;
@@ -603,7 +586,6 @@ body.home{
 
     h1 {
       font: bold italic 100px georgia, times new roman, serif;
-      -webkit-transition-duration: .5s;
     }
 
     .profile_img {
