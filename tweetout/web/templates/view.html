@@ -6,22 +6,27 @@
   <div class="container">
 
     <input type="hidden" id="intervalid" name="intervalid" class="input"/>
+
      
   <section id="tweetssection">
 
            
            
-          <section id="controlsheader">
+          <section id="controlsheader" >
            <div class="row header">
              <div class="seven columns"></div>
              <h2 class="five columns"><a href="https://twitter.com/TweetOutLoud">#yourtweetsoutloud</a></h2>
            </div>
-            <div class="row controls">
-                   <div class="four columns"></div>
-                   <div class="two columns"><div class="large success btn  tweet-button" id="previous"><a href="#">PREVIOUS</a></div></div>
-                   <div class="two columns"><div class=" large success btn icon-right entypo icon-stop tweet-button" id="stopplay"><a href="#"></a></div></div>
-                   <div class="two columns"><div class=" large success btn icon-right entypo icon-play tweet-button" id="startplay"><a href="#"></a></div></div>
-                   <div class="two columns"><div class=" large success btn tweet-button" id="next"><a href="#">NEXT</a></div>  </div>
+            <div class="row controls " gumby-fixed="top">
+               <div class="push_four eight columns example-grid grid">
+                 <ul class="four_up tiles">
+                    <li><div class="large success btn  tweet-button" id="previous"><a href="#">PREVIOUS</a></div></li>
+                    <li><div class=" large success btn icon-right entypo icon-stop tweet-button" id="stopplay"><a href="#"></a></div></li>
+                    <li><div class=" large success btn icon-right entypo icon-play tweet-button" id="startplay"><a href="#"></a></div></li>
+                    <li><div class=" large success btn tweet-button" id="next"><a href="#">NEXT</a></div> </li>
+                  </ul>
+               </div>
+                 
             </div>
           <div class="row searchrow">
             <form action="/view/" id="searchForm" method="post">{% csrf_token %}

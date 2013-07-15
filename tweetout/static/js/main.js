@@ -26,6 +26,7 @@ var playlist = [];
 var playlist_new = [];
 var playlist_old= [];
 var currentPlay;
+var UserStop = false;
     
            
           
@@ -72,7 +73,7 @@ createTweet = function(item){
 
 playlistPlay = function(){
 	var length = playlist.length,element = null;
-	if(playlist.length > 0){
+	if(playlist.length > 0 && UserStop == false){
 	   		
 	   		if(playingaudio == false){
 	   			currentPlay = playlistRemove();
@@ -88,6 +89,7 @@ playlistPlay = function(){
 }
 
 playlistStop = function(){
+	UserStop = true;
 	stop();
 }
 
@@ -104,6 +106,7 @@ playlistRemove = function() {
 
 
 nextPlay = function(){
+	UserStop = false;
 	playlistStop();
 	playlistPlay();
 }
@@ -111,6 +114,7 @@ nextPlay = function(){
 previousPlay = function(){
 	playlistStop();
 	playlist.unshift(playlist_old.shift());
+	UserStop = false;
 	playlistPlay();
 
 }
@@ -122,7 +126,7 @@ createTweets = function (json) {
 	$.each(json, function(i, item) {   
 	   setTimeout(function(){
 	   		createTweet(item);
-	   },5000)
+	   },200)
 	});
 	
 }
@@ -172,6 +176,7 @@ playpause = function() {
 }
 
 stop = function() {
+	UserStop = true;
 	stopSpeech();
 }
 
@@ -212,17 +217,6 @@ openTweetLink = function(id){
 
 
 
-attachHandlers = function() {
-	  $('#start').on("click",function(event){
-			playpause();
-	  });
-	  $('#stop').on("click",function(event){
-			stop();
-	  });
-	  
-	  
-}
-
 
 function vw_talkStarted () {
 	console.log('vw_talkStarted');
@@ -257,9 +251,11 @@ function vw_apiLoaded()
 			stopUpdating();
 	  });
 	  $('#stopplay').on("click",function(event){
+	  	    UserStop = true;
 			stop();
 	  });
 	  $('#startplay').on("click",function(event){
+	  	    UserStop = false;
 			playlistPlay();
 	  });
 	  $('#next').on("click",function(event){

@@ -1861,9 +1861,9 @@ html, body { background-color: #ccc; background-image: url(../img/tweetout_web_1
 
 .column:hover, .columns:hover { cursor: pointer; -webkit-transition-duration: .3s; -moz-transition-duration: .3s; -o-transition-duration: .3s; -ms-transition-duration: .3s; transition-duration: .3s; }
 
-.row { margin-bottom: 1px; text-align: center; background-color: #ffffff; -moz-transition: background-color 5s; -webkit-transition: background-color 5s; -o-transition: background-color 5s; transition: background-color 5s; }
+.row { margin-bottom: 1px; text-align: center; background-color: #ffffff; -moz-transition: background-color 2s; -webkit-transition: background-color 3s; -o-transition: background-color 4s; transition: background-color 2s; }
 
-.row .tweet-header { position: relative; background-color: #39b54a; -moz-transition: background-color 5s; -webkit-transition: background-color 5s; -o-transition: background-color 5s; transition: background-color 5s; }
+.row .tweet-header { position: relative; background-color: #39b54a; -moz-transition: background-color 2s; -webkit-transition: background-color 2s; -o-transition: background-color 2s; transition: background-color 2s; }
 
 .row.new .tweet-header { background-color: #f9d93d; }
 
@@ -1930,6 +1930,12 @@ h1 a:hover { text-decoration: none; }
 
 #controlsheader .searchrow .columns { margin: 0px; }
 
+.row.controls.fixed { background-color: #ccc; width: 100%; bottom: 0%; max-width: 100%; padding-right: 10%; z-index: 99999; }
+
+.row.controls.fixed { background-color: #4D4D4D; }
+
+.row.controls.fixed ul { margin: 5px; width: 100%; }
+
 #tweetssection .row.controls .btn.tweet-button { background-color: #0071bc; margin: 0px 0px; height: 31px; width: 125px; font-size: 16px; border: #00adee; line-height: 31px; margin: 0 0 0 15px; }
 
 #tweetssection .row.controls .btn.tweet-button a { padding: 0px; line-height: 31px; }
@@ -1951,13 +1957,6 @@ section#tweetssection .row.controls .btn.large.icon-right a:after, section#tweet
 .navbar ul li { height: 20px; line-height: 20px; }
 .navbar ul li > a { height: 20px; line-height: 18px; font-size: 0.6em; color: #999999; }
 
-/* Mobile */
-@media only screen and (max-width: 767px) { .tweetcontent { padding: 10px; }
-  section#controlsheader h2 { font-size: 20px; }
-  #tweetssection .row.controls .btn.tweet-button { margin: 2px 5px; width: 100px; }
-  .row.controls { height: 81px; }
-  #search { font-size: 13px; }
-  .searchfield { border: 0px solid #CCCCCC; } }
 /* MODAL WINDOWS */
 body { /* jank buster */ -webkit-transform: translateZ(0); }
 
@@ -1982,7 +1981,7 @@ body { /* jank buster */ -webkit-transform: translateZ(0); }
 body.home h1 { position: absolute; left: -999em; }
 body.home form { margin: auto 76% auto 13%; position: absolute; top: 38%; width: 632px; }
 body.home form input { content: "➦"; }
-body.home form label { color: #fff; font-size: 2rem; font-family: helvetica; }
+body.home form label { color: #fff; font-size: 2rem; font-family: helvetica; text-align: left; }
 
 #tweetssection { margin-top: 20%; }
 
@@ -1990,6 +1989,20 @@ body.home form label { color: #fff; font-size: 2rem; font-family: helvetica; }
 
 .imagediv { margin-top: -8px; }
 
+/* Mobile */
+@media only screen and (max-width: 767px) { .tweetcontent { padding: 10px; }
+  section#controlsheader h2 { font-size: 20px; }
+  #tweetssection .row.controls .btn.tweet-button { margin: 2px 5px; width: 100px; }
+  .row.controls { height: 81px; }
+  #search { font-size: 13px; }
+  .searchfield { border: 0px solid #CCCCCC; }
+  body.home form { width: 280px; text-align: left; top: 20%; }
+  body.home form label { font-size: 1rem; text-align: left; }
+  html, body { background-image: url(../img/tweetout_web_330.png); background-position: center 0px; background-size: contain; width: 100%; height: 100%; }
+  section#tweetssection .row.controls .btn.large.icon-right a:after, section#tweetssection .row.controls .skiplink.large.icon-right a:after { bottom: 0; right: 31px; }
+  #tweetssection .row.controls .btn.tweet-button { width: 64px; }
+  #tweetssection .row.controls .btn.tweet-button { font-size: 11px; }
+  .fixed { position: fixed; } }
 @media only screen and (max-width: 767px) { h1 { font: bold italic 100px georgia, times new roman, serif; -webkit-transition-duration: .5s; }
   .profile_img { display: none; } }
 @media only screen and (max-width: 767px) { .tweet-header { font-size: 10px; }

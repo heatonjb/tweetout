@@ -68,7 +68,7 @@ class User(models.Model):
 			tweet['text_html'] = self.addHTMLtoTweet( tweet['text'] )
 			tweet['created_at'] = self.to_datetime(tweet['created_at']).strftime("%d %b %Y %H:%M:%S")
 			tweet['tts_url'] = ''
-			plain = self.cleanTweet('Tweet from ' + tweet['user']['screen_name'] + ' ,  ' + tweet['text'])
+			plain = self.cleanTweet('Tweet from ' + tweet['user']['name'] + ' ,  ' + tweet['text'])
 			payload = {'speech': plain }
 			tweet['text_plain'] =  plain;
 			tweet['text_tts'] =  payload;
