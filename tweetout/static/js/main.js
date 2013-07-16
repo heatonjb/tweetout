@@ -73,6 +73,7 @@ createTweet = function(item){
 
 playlistPlay = function(){
 	var length = playlist.length,element = null;
+	console.log("userstop = " + UserStop);
 	if(playlist.length > 0 && UserStop == false){
 	   		
 	   		if(playingaudio == false){
@@ -83,7 +84,9 @@ playlistPlay = function(){
 	   		}
 	   
 	}else{
-		console.log("playlist is empty....");
+		console.log("playlist is empty...or USERsTOP .");
+		console.log("userstop = " + UserStop);
+		console.log(playlist);
 	}
 
 }
@@ -106,8 +109,9 @@ playlistRemove = function() {
 
 
 nextPlay = function(){
-	UserStop = false;
 	playlistStop();
+	UserStop = false;
+	playingaudio = false;
 	playlistPlay();
 }
 
@@ -115,6 +119,7 @@ previousPlay = function(){
 	playlistStop();
 	playlist.unshift(playlist_old.shift());
 	UserStop = false;
+	playingaudio = false;
 	playlistPlay();
 
 }
@@ -144,7 +149,10 @@ getUpdate = function() {
 	  			console.log(json.msg);
 	  		}else{
 	      		createTweets(json);
-	      		playlistPlay();
+	      		setTimeout(function(){
+			   		playlistPlay();
+			   },1000);
+	      		
       		}
   	  }
   });
