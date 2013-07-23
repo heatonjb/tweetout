@@ -2,7 +2,6 @@ from django.db import models
 from twython import Twython
 from django.conf import settings
 from datetime import datetime, timedelta
-from datetime import datetime, timedelta
 from email.utils import parsedate_tz
 from twython import TwythonError, TwythonRateLimitError, TwythonAuthError
 import re
@@ -55,23 +54,40 @@ class User(models.Model):
 		tweeter  = re.sub('(@[A-Za-z0-9]+)', '', tweet)
 		return tweeter
 
-	def addTTS(self,tweets,firstonly=True,timeline=True):
+	def addTTS(self,tweets,firstonly=True,timeline=True,newonly=False):
 		
 		try:
 			tweets = tweets['statuses']
 		except Exception, e:
 			pass
+
+		GMTNow = datetime.today() - timedelta(hours = 1)
+
 		
+		GMTNowMin = (datetime.today() - timedelta(hours = 1)) - timedelta(minutes = 1)
 
 		first = True
 		for tweet in tweets:
 			tweet['text_html'] = self.addHTMLtoTweet( tweet['text'] )
-			tweet['created_at'] = self.to_datetime(tweet['created_at']).strftime("%d %b %Y %H:%M:%S")
+			
+			created_at = self.to_datetime(tweet['created_at'])
+			elapsed =  GMTNow - created_at
+			tweet['created_at'] = created_at.strftime('%d %b %Y %H:%M:%S')
+			
+			if newonly:
+				if elapsed > timedelta(minutes=2):
+					tweet['autoplay'] =  False;
+				else:
+					tweet['autoplay'] =  True;
+			else:
+				tweet['autoplay'] =  True;
+
 			tweet['tts_url'] = ''
 			plain = self.cleanTweet(tweet['user']['name'] + ' . ' + tweet['text'])
 			payload = {'speech': plain }
 			tweet['text_plain'] =  plain;
 			tweet['text_tts'] =  payload;
+			
 	
 			#tweet['tts_url'] = requests.get("http://tts-api.com/tts.mp3?return_url=1&q=", params=payload)
 			#r = requests.get("http://speech.jtalkplugin.com/api/", params=payload)

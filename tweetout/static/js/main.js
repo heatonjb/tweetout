@@ -46,7 +46,7 @@ createTweet = function(item){
 
 	var tweetheader = $('<div>').attr('class',"tweet-header").html(header1 + header2 + header3);
 	var tweettext   = $('<div>').attr('class',"row tweet-content-row").html(textrow + imagerow);
-	var tweetfooter = $('<div>').attr('class',"tweet-footer row").html('<div class="two columns"><div class="large success btn icon-right entypo icon-play tweet-button" id="mstart"> <a href="#" onclick="playTweet('+item.id+');"></a></div></div><div class="nine columns"></div><div class="one columns"></div>');
+	var tweetfooter = $('<div>').attr('class',"tweet-footer row").html('<div class="two columns"><div class="large success btn icon-right entypo icon-play tweet-button" id="mstart"> <a href="#" onclick="playTweet('+item.id+');if(event.stopPropagation){event.stopPropagation();}event.cancelBubble=true;"></a></div></div><div class="nine columns"></div><div class="one columns"></div>');
 
 	var content = $('<div>').attr('class',"twelve columns tweetcontent").append(tweetheader).append(tweettext).append(tweetfooter);
 	
@@ -54,6 +54,7 @@ createTweet = function(item){
     .attr('id',item.id) 
     .attr('data-src','https://twitter.com/'+item.user.screen_name+'/status/'+item.id_str)
     .attr('data-saytext',item.text_plain)
+    .attr('data-autoplay',item.autoplay)
     .attr('class',"valign row new unread tweetrow")
     .html(content)        
     .prependTo($("#tweetssection-tweets"));       
@@ -68,7 +69,16 @@ createTweet = function(item){
 
 	
 	//playTweet(item.id); 
-	playlistAdd(item.id);
+	console.log("autoplay = " + item.autoplay);
+	if(item.autoplay == false){
+		playlist_old.push(item.id);
+		console.log('adding to OLD playlist');
+	}else{
+		playlistAdd(item.id);	
+		console.log('adding to NEW playlist');
+	}
+	
+	
 }
 
 playlistPlay = function(){
@@ -108,6 +118,8 @@ playlistRemove = function() {
 
 
 
+
+
 nextPlay = function(){
 	playlistStop();
 	UserStop = false;
@@ -135,6 +147,8 @@ createTweets = function (json) {
 	});
 	
 }
+
+
 
 getUpdate = function() {
 

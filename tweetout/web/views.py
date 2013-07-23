@@ -60,6 +60,7 @@ def auth(request, num="1"):
 	OAUTH_TOKEN_SECERT = final_step['oauth_token_secret']
 	request.session['OAUTH_TOKEN'] = OAUTH_TOKEN
 	request.session['OAUTH_TOKEN_SECRET'] = OAUTH_TOKEN_SECERT
+	request.session['new'] = True
 
 	user, created = User.objects.get_or_create(oauth_token=OAUTH_TOKEN, oauth_token_secret=OAUTH_TOKEN_SECERT)
 	request.session['userid'] = user.id
@@ -86,8 +87,10 @@ def view(request, num="1"):
 
 def update(request):
 	results = {'success':False}
+	newOnlySwitch = True if request.session['new'] else False
+
 	if request.method == u'GET':
-		GET = request.GET
+		GET = request.GET 
 		try:
 			user = User.objects.get(id=request.session['userid'])
 			twitterAuth = user.getTwython(request.session['OAUTH_TOKEN'],request.session['OAUTH_TOKEN_SECRET'])
@@ -100,7 +103,7 @@ def update(request):
 				timeline = user.getSearch(twitter=twitterAuth,count=50,since_id=lastid,searchstr=GET.get("search"))
 			else:
 				timeline = user.getTimeline(twitter=twitterAuth,count=50,since_id=user.last_tweet_id)
-			tweets  = user.addTTS(tweets=timeline,firstonly=True)
+			tweets  = user.addTTS(tweets=timeline,firstonly=True,newonly=newOnlySwitch)
 			results = []
 			for tweet in tweets:
 				results.insert(0, tweet)
