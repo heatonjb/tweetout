@@ -58,9 +58,11 @@ def auth(request, num="1"):
 	
 	OAUTH_TOKEN = final_step['oauth_token']
 	OAUTH_TOKEN_SECERT = final_step['oauth_token_secret']
+	name = final_step['screen_name']
 	request.session['OAUTH_TOKEN'] = OAUTH_TOKEN
 	request.session['OAUTH_TOKEN_SECRET'] = OAUTH_TOKEN_SECERT
 	request.session['new'] = True
+	request.session['screen_name'] = name
 
 	user, created = User.objects.get_or_create(oauth_token=OAUTH_TOKEN, oauth_token_secret=OAUTH_TOKEN_SECERT)
 	request.session['userid'] = user.id
@@ -87,29 +89,41 @@ def view(request, num="1"):
 
 def update(request):
 	results = {'success':False}
+	user = User.objects.get(id=request.session['userid'])
 	newOnlySwitch = True if request.session['new'] else False
+	streamingon = True
 
-	if request.method == u'GET':
-		GET = request.GET 
-		try:
-			user = User.objects.get(id=request.session['userid'])
-			twitterAuth = user.getTwython(request.session['OAUTH_TOKEN'],request.session['OAUTH_TOKEN_SECRET'])
-			if GET.get("search"):
+	if streamingon:
+		results = []
+		print "Streaming On......"
+		newtweets = user.getStreamingTweets()
+		tweets  = user.addTTS(tweets=newtweets,firstonly=True,newonly=newOnlySwitch)
+		for tweet in tweets:
+					results.insert(0, tweet)
+
+	else:
+
+		if request.method == u'GET':
+			GET = request.GET 
+			try:
 				
-				if 'last_search_tweet_id' in request.session:
-					lastid = request.session['last_search_tweet_id'];
+				twitterAuth = user.getTwython(request.session['OAUTH_TOKEN'],request.session['OAUTH_TOKEN_SECRET'])
+				if GET.get("search"):
+					
+					if 'last_search_tweet_id' in request.session:
+						lastid = request.session['last_search_tweet_id'];
+					else:
+						lastid = ''
+					timeline = user.getSearch(twitter=twitterAuth,count=50,since_id=lastid,searchstr=GET.get("search"))
 				else:
-					lastid = ''
-				timeline = user.getSearch(twitter=twitterAuth,count=50,since_id=lastid,searchstr=GET.get("search"))
-			else:
-				timeline = user.getTimeline(twitter=twitterAuth,count=50,since_id=user.last_tweet_id)
-			tweets  = user.addTTS(tweets=timeline,firstonly=True,newonly=newOnlySwitch)
-			results = []
-			for tweet in tweets:
-				results.insert(0, tweet)
+					timeline = user.getTimeline(twitter=twitterAuth,count=50,since_id=user.last_tweet_id)
+				tweets  = user.addTTS(tweets=timeline,firstonly=True,newonly=newOnlySwitch)
+				results = []
+				for tweet in tweets:
+					results.insert(0, tweet)
 
-		except TwythonRateLimitError, e:
-			results = {'success':False,'msg':str(e)}
+			except TwythonRateLimitError, e:
+				results = {'success':False,'msg':str(e)}
 	
 	if results == []:
 		results = {'success':True,'msg':"No new Tweets available"}

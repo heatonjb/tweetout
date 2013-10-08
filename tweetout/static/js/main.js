@@ -27,6 +27,7 @@ var playlist_new = [];
 var playlist_old= [];
 var currentPlay;
 var UserStop = false;
+var socket = false;
     
            
           
@@ -141,9 +142,9 @@ previousPlay = function(){
 
 createTweets = function (json) {
 	$.each(json, function(i, item) {   
-	   setTimeout(function(){
+	  // setTimeout(function(){
 	   		createTweet(item);
-	   },200)
+	  // },200)
 	});
 	
 }
@@ -210,26 +211,54 @@ clear = function() {
 }
 
 stopUpdating = function() {
+	socket.disconnect();
 	$('#controlsheader').removeClass('loading');	
 	intervalVar=window.clearInterval($('#intervalid').val());
 	console.log("STOPPED");
 }
 
+
+openSocket = function() {
+	
+ 
+    console.log(".....connecting to socket on localhost 9000");
+    socket = io.connect('http://127.0.0.1:9000');
+    //socket.emit('Tesst Emit from Browser....', { my: 'data' });
+    socket.on('update', function(data) {
+        console.log("socket updates");
+        console.log(data);
+        createTweet(data);
+        
+    });
+
+}
+
+isSocketConnected = function() {
+	return true;
+	return socket.socket.connected;
+}
+
 startUpdating = function() {
 
-	if($('#interval').length){
-	$('#controlsheader').addClass('loading');	
-	getUpdate();
-	intervalVar = self.setInterval(function(){clock()},$('#interval').val());
-	$('#intervalid').val(intervalVar);
-	function clock()
-	  {
-	 		console.log("update now....");
-	 		if(playingaudio == false){
-	 			getUpdate();
-	 		}
-	  }
-	console.log("STARTED");
+
+	if(isSocketConnected()==false){
+		console.log("no socket so doing ajax.");
+
+		if($('#interval').length){
+			$('#controlsheader').addClass('loading');
+
+			getUpdate();
+			intervalVar = self.setInterval(function(){clock()},$('#interval').val());
+			$('#intervalid').val(intervalVar);
+			function clock()
+			  {
+			 		console.log("update now....");
+			 		if(playingaudio == false){
+			 			getUpdate();
+			 		}
+			  }
+			console.log("STARTED");
+		}
 	}
 }
 
@@ -264,6 +293,7 @@ function vw_apiLoaded()
        console.log('voice loaded')	;
        //turn on queuing
         setStatus(0,1);
+        openSocket();
        	startUpdating();
    } 
 

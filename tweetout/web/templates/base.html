@@ -17,8 +17,8 @@
 	<link rel="stylesheet" href="{% static "theme/style.css" %}" type="text/css">
 	<script src="{% static "jquery-1.7.2.min.js" %}" type="text/javascript"></script>
 	<script src="{% static "js/libs/modernizr-2.6.2.min.js" %}" type="text/javascript"></script>
-
-
+  <script src="http://localhost:9000/socket.io/socket.io.js"></script>
+  
 </head>
 
 <body class="{% block bodyclass %}{% endblock %}">
@@ -29,6 +29,9 @@
 	
 
 {% endblock %}
+
+
+
 
   <!-- Grab Google CDN's jQuery, fall back to local if offline -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -59,7 +62,12 @@
 <!--www.vocalware.com-->
   <script language="JavaScript" type="text/javascript" src="http://vhss.oddcast.com/vocalware_embed_functions.php?acc=3762990&js=1"></script><script language="JavaScript" type="text/javascript">AC_Vocalware_Embed(3762990,300, 400,'',1,1, 2319169, 0,1,0,'d2b6865e028780e42c09905c92e6353c',9);</script>
 
- 
+
+
+
+
+
+
 
   <!-- Change UA-XXXXX-X to be your site's ID -->
   <!--<script>

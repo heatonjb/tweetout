@@ -1,6 +1,6 @@
 # Django settings for tweetout project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -95,7 +95,7 @@ SECRET_KEY = '^0w211t7p+)yjgspi4r4m(@0hgrs+3_8^k!fqcpug@--8qzm$8'
 
 TWITTER_CONSUMER_KEY = 'UXGPhu7Mxmb7UrGskHnofg'
 TWITTER_CONSUMER_SECRET = 'OFUKyMZXvOSwcFyyXKJYbwrLqdYICpflrOZAuaNVvs'
-TWITTER_CALLBACK_URL = 'http://tweet-out.com/auth'
+TWITTER_CALLBACK_URL = 'http://127.0.0.1:8000/auth'
 
 def custom_show_toolbar(request):
     return False  # Always show toolbar, for example purposes only.
@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'web',
     'debug_toolbar',
     'django.contrib.humanize',
+   
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

@@ -5,6 +5,10 @@ from datetime import datetime, timedelta
 from email.utils import parsedate_tz
 from twython import TwythonError, TwythonRateLimitError, TwythonAuthError
 import re
+import json
+import mq
+from mq import MQ,Producer, Consumer
+
 
 import requests
 
@@ -13,6 +17,10 @@ class User(models.Model):
 	oauth_token_secret = models.CharField(max_length=90)
 	last_tweet_id = models.IntegerField(null=True,blank=True)
 	read_only_latest_tweet = models.BooleanField(default=True)
+	#screen_name = models.CharField(max_length=90)
+	tweets = []
+	mq = mq.MQ()
+	
 	def getTwython(self,token,secret):
 		twitter = Twython(	settings.TWITTER_CONSUMER_KEY, 
 					settings.TWITTER_CONSUMER_SECRET,
@@ -107,4 +115,26 @@ class User(models.Model):
 				first = False
 				
 		return tweets
+
+	def message_callback(self,message):
+		tweets = json.loads(message.body)
+		print 'message_Callback: %s' % str(tweets)
+		self.tweets.append(tweets)
+
+	def getStreamingTweets(self):
+		print "getStreamingTweets"
+		
+		self.mq.init_consumer(self.message_callback)
+		print "******"
+		self.mq.consumer.wait()
+		return self.tweets
+
+
+
+	
+
+
+
+
+
 

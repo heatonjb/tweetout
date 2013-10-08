@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 
     #(r'^', include('web.urls')),
     url(r"^", include("web.urls")),
-
+    url("", include('django_socketio.urls')),
     #url(r'^$', include('web.urls')),
     #url(r'auth/^$', 'web.views.auth'),
 	#url(r'^$', web.views.MainView.as_view(),name='main_view',),
