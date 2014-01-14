@@ -85,9 +85,13 @@ def view(request, num="1"):
 
 
 
-def update(request):
+def update(request,tweetCount=50):
 	results = {'success':False}
 	newOnlySwitch = True if request.session['new'] else False
+	request.session['new'] = False
+	if newOnlySwitch == True:
+		print "new sesssion so getting 1 tweet only"
+		update(request,1)
 	# set to New ONLY!!!!!!
 	newOnlySwitch = True
 
@@ -110,7 +114,7 @@ def update(request):
 				timeline = user.getSearch(twitter=twitterAuth,count=50,since_id=lastid,searchstr=GET.get("search"))
 			else:
 				timeline = user.getTimeline(twitter=twitterAuth,count=50,since_id=user.last_tweet_id)
-			tweets  = user.addTTS(tweets=timeline,firstonly=True,newonly=newOnlySwitch)
+			tweets  = user.addTTS(tweets=timeline,firstonly=True,newonly=False)
 			results = []
 			for tweet in tweets:
 				results.insert(0, tweet)
