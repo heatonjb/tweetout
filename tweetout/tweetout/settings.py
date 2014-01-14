@@ -25,13 +25,13 @@ INTERNAL_IPS = ('127.0.0.1', '192.168.0.1','95.138.191.244')
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.tweet-out.com','tweet-out.com']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -98,7 +98,7 @@ TWITTER_CONSUMER_SECRET = 'OFUKyMZXvOSwcFyyXKJYbwrLqdYICpflrOZAuaNVvs'
 TWITTER_CALLBACK_URL = 'http://tweet-out.com/auth'
 
 def custom_show_toolbar(request):
-    return False  # Always show toolbar, for example purposes only.
+    return True  # Always show toolbar, for example purposes only.
 SHOW_TOOLBAR_CALLBACK = custom_show_toolbar
 
 DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}
