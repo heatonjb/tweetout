@@ -2009,3 +2009,4 @@ body.home form label { color: #fff; font-size: 2rem; font-family: helvetica; tex
   .tweet-text { font-size: 12px; }
   .navbar ul { top: 20px; }
   .navbar .toggle { z-index: 9999999; } }
+#audioOption { background-color: #0071bc; color: #fff; height: 30px; }
