@@ -71,7 +71,8 @@ createTweet = function(item){
 	//playTweet(item.id); 
 	console.log("autoplay = " + item.autoplay);
 	if(item.autoplay == false){
-		playlist_old.push(item.id);
+		//playlist_old.push(item.id);
+		playlistAdd(item.id);
 		console.log('adding to OLD playlist');
 	}else{
 		playlistAdd(item.id);	
@@ -95,6 +96,7 @@ playlistPlay = function(){
 	   
 	}else{
 		console.log("playlist is empty...or USERsTOP .");
+		console.log("playkist length = " + playlist.length);
 		console.log("userstop = " + UserStop);
 		console.log(playlist);
 	}
@@ -173,21 +175,44 @@ getUpdate = function() {
 
 }
 
+function PlaySound() {
+    var sound = document.getElementById('audio1');
+    if (window.chrome) sound.load();
+    sound.play();
+  }
+
 playTweet = function(id){
 	tweet = $('#'+id);
 	tweet.addClass('playing');
 	text = tweet.data('saytext');
 	console.log("play Tweet " + text);
-	if($("#mute").is(':checked')){
+	audioOption = $('#audioOption').val();
+	console.log('AudioToption = '+ audioOption);
+	if(audioOption == 'mute'){
 		console.log('Cant Talk - Muted');
-	}else {
+		playingaudio = true;
+		vw_talkEnded();
+	}
+	if(audioOption == 'beep') {
+		console.log('Cant Talk - Beeping');
+		$('html, body').animate({
+	         scrollTop: tweet.offset().top
+	     }, 2000);
+		PlaySound("audio1");
+		playingaudio = true;
+		vw_talkEnded();
+	}
+	if(audioOption == 'voice') {
+		console.log('Talking');
 		$('html, body').animate({
 	         scrollTop: tweet.offset().top
 	     }, 2000);
 		say(text);
 		playingaudio = true;
 	}
+
 }
+
 
 say = function(text) {
 	sayText(text,1,1,3); 

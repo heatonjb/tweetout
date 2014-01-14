@@ -88,12 +88,19 @@ def view(request, num="1"):
 def update(request):
 	results = {'success':False}
 	newOnlySwitch = True if request.session['new'] else False
+	# set to New ONLY!!!!!!
+	newOnlySwitch = True
 
 	if request.method == u'GET':
 		GET = request.GET 
 		try:
 			user = User.objects.get(id=request.session['userid'])
-			twitterAuth = user.getTwython(request.session['OAUTH_TOKEN'],request.session['OAUTH_TOKEN_SECRET'])
+			try:
+				twitterAuth = request.session['twitterAuth']
+			except KeyError:		
+				twitterAuth = user.getTwython(request.session['OAUTH_TOKEN'],request.session['OAUTH_TOKEN_SECRET'])
+				request.session['twitterAuth'] = twitterAuth
+			
 			if GET.get("search"):
 				
 				if 'last_search_tweet_id' in request.session:

@@ -1,7 +1,7 @@
 3.2.9 (Media Mark)
-8b8277f14885d3beba7fece430806b0c8605e8ca
+a04432bfb684f9037d898d320b419f54f5c66d54
 o:Sass::Tree::RootNode
-:@template"ƒ'
+:@template"Ï'
 
 
 
@@ -618,8 +618,12 @@ body.home{
     }
   }
 
-
-:@has_childrenT:@options{ :@children[Lo:Sass::Tree::CommentNode
+#audioOption {
+  background-color: #0071bc;
+  color: #fff;
+  height: 30px;
+}
+:@has_childrenT:@options{ :@children[Mo:Sass::Tree::CommentNode
 :
 @type:silent:@value["5/* Your custom SCSS should be written here... */;@;	[ :
 @linei
@@ -1026,4 +1030,6 @@ fixed;@;";#;@;i ;	[ ;iH;iH:@query["	only" "screen"
 ;0;o;;{ ;[o;&;["navbar;" ;ie;@Ý;ieo;
 ;0;o;;{ ;[o;&;["toggle;@Ý;ie;@Ý;ie;@Ý;ie;T;@;i ;	[o;;["z-index;o; ;;!;"9999999;@;";#;@;i ;	[ ;if;ie;9["	only" "screen"
  and "(o; 	;;!;"max-width;@;i[": o;4;5[ ;6["px;iÿ;@;7"
-767px;i[");i[;i
+767px;i[");i[o;;["#audioOption;o;;[o;;[o;
+;0;o;;{ ;[o;$;["audioOption;" ;ij;@	;ij;@	;ij;T;@;i ;	[o;;["background-color;o; ;;!;"#0071bc;@;";#;@;i ;	[ ;iko;;["
+color;o; ;;!;"	#fff;@;";#;@;i ;	[ ;ilo;;["height;o; ;;!;"	30px;@;";#;@;i ;	[ ;im;ij;i
